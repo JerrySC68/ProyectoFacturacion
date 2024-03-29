@@ -39,11 +39,7 @@ public class ProductController {
         // Multi lenguaje
         //--------------------------------------------------------------------------------
         Locale currentLocale = LocaleContextHolder.getLocale();
-        String countryCode = currentLocale.getCountry();
-        String countryName = currentLocale.getDisplayCountry();
 
-        String langCode = currentLocale.getLanguage();
-        String langName = currentLocale.getDisplayLanguage();
 
         return "products/index";
     }
@@ -175,24 +171,25 @@ public class ProductController {
     //--------------------------------------------------------------------------------
     // Bean
     //--------------------------------------------------------------------------------
+    @Bean
     public LocaleResolver localeResolver()
     {
+        System.out.println("LocaleResolver");
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.US);
+        System.out.println("locale" + slr.toString());
 
         return slr;
     }
 
-    public LocaleChangeInterceptor localeChangeInterceptor()
-    {
+    public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
-
+        System.out.println("lang" +  lci.toString());
         return lci;
     }
 
-    public void addInterceptors(InterceptorRegistry registry)
-    {
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
 }

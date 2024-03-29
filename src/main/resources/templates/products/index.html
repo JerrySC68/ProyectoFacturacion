@@ -2,19 +2,19 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Product</title>
+		<title>[[#{product.Title}]]</title>
 	</head>
 	<body>
 		<h1>[[#{product.Title}]]</h1>
-		<a href="/products/create">[[#{product.Create}]]</a>
+		<a href="/products/create">[[#{action.Create}]]</a>
 		<div>
 			<table>
 				<thead>
 					<tr>
-						<th>Code</th>
-						<th>Description</th>
-						<th>Price</th>
-						<th>Actions</th>
+						<th>[[#{product.Code}]]</th>
+						<th>[[#{product.Description}]]</th>
+						<th>[[#{product.Price}]]</th>
+						<th>[[#{table.Action}]]</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,11 +23,18 @@
 						<td th:text="${product.description}"></td>
 						<td th:text="${product.price}"></td>
 						<td>
-							<a th:href="@{/products/view(id=${product.id})}">[[#{product.View}]]</a>
-							<a th:href="@{/products/edit(id=${product.id})}">[[#{product.Edit}]]</a>
-							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm('Are you sure?')">[[#{product.Delete}]]</a>
+							<a th:href="@{/products/view(id=${product.id})}">[[#{action.View}]]</a>
+							<a th:href="@{/products/edit(id=${product.id})}">[[#{action.Edit}]]</a>
+							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm(''+[[#{action.Confirm}]])">[[#{action.Delete}]]</a>
 						</td>
 					</tr>
+					<label> [[#{idioma.Idioma}]]
+						<Select>
+							<option value="en"> <a href="/products?lang=en">[[#{idioma.English}]]</a></option>
+							<option value="es"> <a href="/products?lang=es">[[#{idioma.Español}]]</a></option>
+							<option value="it"> <a href="/products?lang=it">[[#{idioma.Italiano}]]</a></option>
+						</Select>
+					</label>
 				</tbody>
 			</table>
 		</div>
