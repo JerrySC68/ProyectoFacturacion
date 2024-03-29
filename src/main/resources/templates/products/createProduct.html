@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Product Create</title>
+	</head>
+	<body>
+		<h1>Product Create</h1>
+		<form enctype="multipart/form-data" method="post" th:object="${productDTO}">
+			<div>
+				<label>Type</label>
+				<div>
+					<select th:field="${productDTO.type}">
+						<option value="1">Product</option>
+						<option value="0">Service</option>
+					</select>
+					<p th:error="${productDTO.type}" th:if="${#fields.hasErrors('type')}"></p>
+				</div>
+			</div>
+			<div>
+				<label>Code</label>
+				<div>
+					<input th:field="${productDTO.code}"/>
+					<p th:error="${productDTO.code}" th:if="${#fields.hasErrors('code')}"></p>
+				</div>
+			</div>
+			<div>
+				<label>Description</label>
+				<div>
+					<textarea th:field="${productDTO.description}"></textarea>
+					<p th:error="${productDTO.description}" th:if="${#fields.hasErrors('description')}"></p>
+				</div>
+			</div>
+			<div>
+				<label>Measure</label>
+				<div>
+					<select th:field="${productDTO.measure}">
+						<option value="u">Unit</option>
+						<option value="kg">Kilogram</option>
+						<option value="l">Liter</option>
+						<option value="m">Metro</option>
+						<option value="n">none</option>
+					</select>
+					<p th:error="${productDTO.measure}" th:if="${#fields.hasErrors('measure')}"></p>
+				</div>
+			</div>
+			<div>
+				<label>Price</label>
+				<div>
+					<input min="0" th:field="${productDTO.price}" type="number">
+					<p th:error="${productDTO.price}" th:if="${#fields.hasErrors('price')}"></p>
+				</div>
+			</div>
+			<div>
+				<label>IVA Fee</label>
+				<div>
+					<select th:field="${productDTO.ivaFee}">
+						<option value="0">0%</option>
+						<option value="0.5">0.5%</option>
+						<option value="1">1%</option>
+						<option value="4">4%</option>
+						<option value="8">8%</option>
+						<option value="13">13%</option>
+					</select>
+					<p th:error="${productDTO.ivaFee}" th:if="${#fields.hasErrors('ivaFee')}"></p>
+				</div>
+			</div>
+			<button type="submit">Submit</button>
+			<a href="/products">Back</a>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Product</title>
+	</head>
+	<body>
+		<h1>[[#{product.Title}]]</h1>
+		<a href="/products/create">[[#{product.Create}]]</a>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product : ${products}">
+						<td th:text="${product.code}"></td>
+						<td th:text="${product.description}"></td>
+						<td th:text="${product.price}"></td>
+						<td>
+							<a th:href="@{/products/view(id=${product.id})}">[[#{product.View}]]</a>
+							<a th:href="@{/products/edit(id=${product.id})}">[[#{product.Edit}]]</a>
+							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm('Are you sure?')">[[#{product.Delete}]]</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
