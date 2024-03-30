@@ -28,13 +28,13 @@
 							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm(''+[[#{action.Confirm}]])">[[#{action.Delete}]]</a>
 						</td>
 					</tr>
-					<label> [[#{idioma.Idioma}]]
-						<Select>
-							<option value="en"> <a href="/products?lang=en">[[#{idioma.English}]]</a></option>
-							<option value="es"> <a href="/products?lang=es">[[#{idioma.Español}]]</a></option>
-							<option value="it"> <a href="/products?lang=it">[[#{idioma.Italiano}]]</a></option>
-						</Select>
-					</label>
+
+					<label>[[#{idioma.Idioma}]]</label>
+					<form th:action="@{/products}" method="get">
+						<button type="submit" name="lang" value="en" th:class="${#locale.language == 'en'} ? 'active' : ''">[[#{idioma.English}]]</button>
+						<button type="submit" name="lang" value="es" th:class="${#locale.language == 'es'} ? 'active' : ''">[[#{idioma.Español}]]</button>
+						<button type="submit" name="lang" value="it" th:class="${#locale.language == 'it'} ? 'active' : ''">[[#{idioma.Italiano}]]</button>
+					</form>
 				</tbody>
 			</table>
 		</div>

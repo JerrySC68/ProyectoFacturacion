@@ -1,22 +1,19 @@
 package org.example.prograivproyectoi.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.example.prograivproyectoi.Data.DTO.ProductDTO;
 import org.example.prograivproyectoi.Data.Repository.ProductRepository;
 import org.example.prograivproyectoi.Model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.List;
 import java.util.Locale;
@@ -27,19 +24,25 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
+    @Autowired
+    LocaleResolver localeResolver;
+
     //--------------------------------------------------------------------------------
     //Muestra la lista de productos
     //--------------------------------------------------------------------------------
     @GetMapping({"", "/"})
-    public String showProductsList(Model model) {
-        List<Product> products = repository.findAll(Sort.by(Sort.Direction.ASC, "code"));
-        model.addAttribute("products", products);
-
+    public String showProductsList(Model model, HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam(name = "lang", required = false) String lang)
+    {
         //--------------------------------------------------------------------------------
         // Multi lenguaje
         //--------------------------------------------------------------------------------
-        Locale currentLocale = LocaleContextHolder.getLocale();
+        if (lang != null) {
+            localeResolver.setLocale(request, response, new Locale(lang));
+        }
 
+        List<Product> products = repository.findAll(Sort.by(Sort.Direction.ASC, "code"));
+        model.addAttribute("products", products);
 
         return "products/index";
     }
@@ -48,7 +51,16 @@ public class ProductController {
     //Muestra la página de creación de productos
     //--------------------------------------------------------------------------------
     @GetMapping("/create")
-    public String showProductCreatePage(Model model) {
+    public String showProductCreatePage(Model model, HttpServletRequest request, HttpServletResponse response,
+                                        @RequestParam(name = "lang", required = false) String lang)
+    {
+        //--------------------------------------------------------------------------------
+        // Multi lenguaje
+        //--------------------------------------------------------------------------------
+        if (lang != null) {
+            localeResolver.setLocale(request, response, new Locale(lang));
+        }
+
         ProductDTO productDTO = new ProductDTO();
         model.addAttribute("productDTO", productDTO);
         return "products/createProduct";
@@ -166,30 +178,5 @@ public class ProductController {
         }
 
         return "products/viewProduct";
-    }
-
-    //--------------------------------------------------------------------------------
-    // Bean
-    //--------------------------------------------------------------------------------
-    @Bean
-    public LocaleResolver localeResolver()
-    {
-        System.out.println("LocaleResolver");
-        SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.US);
-        System.out.println("locale" + slr.toString());
-
-        return slr;
-    }
-
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        System.out.println("lang" +  lci.toString());
-        return lci;
-    }
-
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
     }
 }
