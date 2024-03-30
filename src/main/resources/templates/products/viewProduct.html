@@ -5,6 +5,7 @@
 		<title>Product View</title>
 	</head>
 	<body>
+		<div th:replace="fragments/header :: header">&nbsp;</div>
 		<h1>Product View</h1>
 		<div th:object="${productDTO}">
 			<div>
@@ -61,5 +62,6 @@
 			</div>
 			<a href="/products">Back</a>
 		</div>
+		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 	</body>
 </html>

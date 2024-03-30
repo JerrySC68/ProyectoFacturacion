@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>[[#{product.Title}]]</title>
+		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
 	</head>
 	<body>
+		<div th:replace="fragments/header :: header">&nbsp;</div>
 		<h1>[[#{product.Title}]]</h1>
 		<a href="/products/create">[[#{action.Create}]]</a>
 		<div>
@@ -28,15 +30,9 @@
 							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm(''+[[#{action.Confirm}]])">[[#{action.Delete}]]</a>
 						</td>
 					</tr>
-
-					<label>[[#{idioma.Idioma}]]</label>
-					<form th:action="@{/products}" method="get">
-						<button type="submit" name="lang" value="en" th:class="${#locale.language == 'en'} ? 'active' : ''">[[#{idioma.English}]]</button>
-						<button type="submit" name="lang" value="es" th:class="${#locale.language == 'es'} ? 'active' : ''">[[#{idioma.Español}]]</button>
-						<button type="submit" name="lang" value="it" th:class="${#locale.language == 'it'} ? 'active' : ''">[[#{idioma.Italiano}]]</button>
-					</form>
 				</tbody>
 			</table>
 		</div>
+		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 	</body>
 </html>

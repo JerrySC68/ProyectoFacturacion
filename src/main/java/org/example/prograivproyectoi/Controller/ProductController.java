@@ -7,7 +7,6 @@ import org.example.prograivproyectoi.Data.DTO.ProductDTO;
 import org.example.prograivproyectoi.Data.Repository.ProductRepository;
 import org.example.prograivproyectoi.Model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
