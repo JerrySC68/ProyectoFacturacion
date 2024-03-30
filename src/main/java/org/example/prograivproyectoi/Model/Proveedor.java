@@ -1,6 +1,9 @@
 package org.example.prograivproyectoi.Model;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.Mapping;
+
+import java.util.List;
 
 @Entity
 public class Proveedor

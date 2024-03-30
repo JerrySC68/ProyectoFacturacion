@@ -27,7 +27,7 @@
 						<td>
 							<a th:href="@{/products/view(id=${product.id})}">[[#{action.View}]]</a>
 							<a th:href="@{/products/edit(id=${product.id})}">[[#{action.Edit}]]</a>
-							<a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm(''+[[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+							<a th:href="@{/products/delete(id=${product.id})}" th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
 						</td>
 					</tr>
 				</tbody>
