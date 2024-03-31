@@ -3,18 +3,16 @@ package logic;
 public class Cliente {
     private int id;
     private String nombre;
-    private String primer_apellido;
-    private String segundo_apellido;
+    private String apellido;
     private String cedula;
     private String direccion;
     private String telefono;
     private  String email;
 
-    public Cliente(int id, String nombre, String primer_apellido, String segundo_apellido, String cedula, String direccion, String telefono, String email) {
+    public Cliente(int id, String nombre, String apellido, String cedula, String direccion, String telefono, String email) {
         this.id = id;
         this.nombre = nombre;
-        this.primer_apellido = primer_apellido;
-        this.segundo_apellido = segundo_apellido;
+        this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -69,19 +67,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getPrimer_apellido() {
-        return primer_apellido;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setPrimer_apellido(String primer_apellido) {
-        this.primer_apellido = primer_apellido;
-    }
-
-    public String getSegundo_apellido() {
-        return segundo_apellido;
-    }
-
-    public void setSegundo_apellido(String segundo_apellido) {
-        this.segundo_apellido = segundo_apellido;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 }
