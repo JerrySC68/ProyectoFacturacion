@@ -67,8 +67,6 @@ public class ProductController {
 
     @PostMapping("/create")
     public String createproduct(@Valid @ModelAttribute ProductDTO productDTO, BindingResult result) {
-        //Imprimir el objeto productDTO
-        System.out.println("Result" + result.toString());
 
         // Si hay errores en el formulario, se regresa  a la pagina de creación
         if (result.hasErrors()) {
@@ -93,6 +91,7 @@ public class ProductController {
     //--------------------------------------------------------------------------------
     @GetMapping("/edit")
     public String showProductEditPage(Model model, @RequestParam("id") int id) {
+
         try {
             Product product = repository.findById(id).get();
             model.addAttribute("product", product);

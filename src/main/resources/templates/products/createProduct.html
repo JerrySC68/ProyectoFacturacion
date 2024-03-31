@@ -3,38 +3,43 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>[[#{product.create.Title}]]</title>
+		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
 		<h1>[[#{product.create.Title}]]</h1>
 		<form enctype="multipart/form-data" method="post" th:object="${productDTO}">
 			<div>
-				<label>Type</label>
 				<div>
+					<label>[[#{product.Type}]]</label>
 					<select th:field="${productDTO.type}">
 						<option value="1">Product</option>
 						<option value="0">Service</option>
 					</select>
-					<p th:error="${productDTO.type}" th:if="${#fields.hasErrors('type')}"></p>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
-			</div>
-			<div>
-				<label>Code</label>
 				<div>
+					<label>[[#{product.Code}]]</label>
 					<input th:field="${productDTO.code}"/>
-					<p th:error="${productDTO.code}" th:if="${#fields.hasErrors('code')}"></p>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('code')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
-			</div>
-			<div>
-				<label>Description</label>
 				<div>
-					<textarea th:field="${productDTO.description}"></textarea>
-					<p th:error="${productDTO.description}" th:if="${#fields.hasErrors('description')}"></p>
+					<label>[[#{product.Description}]]</label>
+					<input th:field="${productDTO.description}"/>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}"
+							 th:each="error : ${#fields.errors('description')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
-			</div>
-			<div>
-				<label>Measure</label>
 				<div>
+					<label>[[#{product.Measure}]]</label>
 					<select th:field="${productDTO.measure}">
 						<option value="u">Unit</option>
 						<option value="kg">Kilogram</option>
@@ -43,18 +48,21 @@
 						<option value="n">none</option>
 					</select>
 					<p th:error="${productDTO.measure}" th:if="${#fields.hasErrors('measure')}"></p>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
-			</div>
-			<div>
-				<label>Price</label>
 				<div>
+					<label>[[#{product.Price}]]</label>
 					<input min="0" th:field="${productDTO.price}" type="number">
-					<p th:error="${productDTO.price}" th:if="${#fields.hasErrors('price')}"></p>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('price')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
-			</div>
-			<div>
-				<label>IVA Fee</label>
 				<div>
+					<label>[[#{product.IvaFee}]]</label>
 					<select th:field="${productDTO.ivaFee}">
 						<option value="0">0%</option>
 						<option value="0.5">0.5%</option>
@@ -63,11 +71,14 @@
 						<option value="8">8%</option>
 						<option value="13">13%</option>
 					</select>
-					<p th:error="${productDTO.ivaFee}" th:if="${#fields.hasErrors('ivaFee')}"></p>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('ivaFee')}"
+							 th:text="${error}"></li>
+					</ul>
 				</div>
+				<button type="submit">[[#{action.Submit}]]</button>
+				<a href="/products">[[#{action.Back}]]</a>
 			</div>
-			<button type="submit">Submit</button>
-			<a href="/products">Back</a>
 		</form>
 		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 	</body>

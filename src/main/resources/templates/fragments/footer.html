@@ -6,7 +6,6 @@
 	<body th:fragment="footer" >
 		<div th:align="center">
 			&copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2024</span>
-
 			<label>[[#{idioma.Idioma}]]</label>
 			<form method="get">
 				<button type="submit" name="lang" value="en" th:class="${#locale.language == 'en'} ? 'active' : ''">[[#{idioma.English}]]</button>

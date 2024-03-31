@@ -3,9 +3,12 @@ package org.example.prograivproyectoi.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.prograivproyectoi.Data.DTO.ProductDTO;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.ui.Model;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
@@ -19,12 +22,34 @@ import java.util.Locale;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer
 {
+    //-----------------------------------------------------------------------------------------
+    //Validar error multilenguaje
+    //-----------------------------------------------------------------------------------------
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource
+                = new ReloadableResourceBundleMessageSource();
+
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }
+
+    //-----------------------------------------------------------------------------------------
+    //Cambiar idioma
+    //-----------------------------------------------------------------------------------------
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
         resolver.setDefaultLocale(Locale.US);
         resolver.setCookieName("myLocaleCookie");
-        resolver.setCookieMaxAge(4800); // 4800 seconds = 2 hours
         return resolver;
     }
 

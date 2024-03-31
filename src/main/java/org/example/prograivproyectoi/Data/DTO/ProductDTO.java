@@ -10,20 +10,20 @@ public class ProductDTO
     //-----------------------------------------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------------------------------------
-    @NotNull(message = "El tipo del producto no puede estar vacío")
+    @NotNull(message = "{error.Empty}")
     private Boolean type;
-    @NotNull(message = "El código del producto no puede estar vacío")
+    @NotEmpty(message = "{error.Empty}")
     private String code;
-    @NotEmpty(message = "La descripción del producto no puede estar vacía")
+    @NotEmpty(message = "{error.Empty}")
     @Size(max = 2000, message = "La descripción del producto no puede tener más de 1000 caracteres")
     private String description;
-
+    @NotEmpty(message = "{error.Empty}")
     private String measure;
-    @NotNull(message = "El precio del producto no puede estar vacío")
-    @Min(0)
+    @NotNull(message = "{error.Empty}")
+    @Min(value = 0, message = "{error.Negative}")
     private Double price;
-    @NotNull(message = "El IVA del producto no puede estar vacío")
-    @Min(0)
+    @NotNull(message = "{error.Empty}")
+    @Min(value = 0, message = "{error.Negative}")
     private Double ivaFee;
 
     //-----------------------------------------------------------------------------------------

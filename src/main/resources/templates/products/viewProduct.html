@@ -2,65 +2,53 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Product View</title>
+		<title>[[#{product.view.Title}]]</title>
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
-		<h1>Product View</h1>
+		<h1>[[#{product.view.Title}]]</h1>
 		<div th:object="${productDTO}">
 			<div>
-				<label>Type</label>
-				<div>
-					<select disabled th:field="${productDTO.type}">
-						<option value="1">Product</option>
-						<option value="0">Service</option>
-					</select>
-				</div>
+				<label>[[#{product.Type}]]</label>
+				<select disabled th:field="${productDTO.type}">
+					<option value="1">Product</option>
+					<option value="0">Service</option>
+				</select>
 			</div>
 			<div>
-				<label>Code</label>
-				<div>
-					<input disabled th:field="${productDTO.code}"/>
-				</div>
+				<label>[[#{product.Code}]]</label>
+				<input disabled th:field="${productDTO.code}"/>
 			</div>
 			<div>
-				<label>Description</label>
-				<div>
-					<textarea disabled th:field="${productDTO.description}"></textarea>
-				</div>
+				<label>[[#{product.Description}]]</label>
+				<input disabled th:field="${productDTO.description}"/>
 			</div>
 			<div>
-				<label>Measure</label>
-				<div>
-					<select disabled th:field="${productDTO.measure}">
-						<option value="u">Unit</option>
-						<option value="kg">Kilogram</option>
-						<option value="l">Liter</option>
-						<option value="m">Metro</option>
-						<option value="n">none</option>
-					</select>
-				</div>
+				<label>[[#{product.Measure}]]</label>
+				<select disabled th:field="${productDTO.measure}">
+					<option value="u">Unit</option>
+					<option value="kg">Kilogram</option>
+					<option value="l">Liter</option>
+					<option value="m">Metro</option>
+					<option value="n">none</option>
+				</select>
 			</div>
 			<div>
-				<label>Price</label>
-				<div>
-					<input disabled min="0" th:field="${productDTO.price}" type="number">
-				</div>
+				<label>[[#{product.Price}]]</label>
+				<input disabled min="0" th:field="${productDTO.price}" type="number">
 			</div>
 			<div>
-				<label>IVA Fee</label>
-				<div>
-					<select disabled th:field="${productDTO.ivaFee}">
-						<option value="0">0%</option>
-						<option value="0.5">0.5%</option>
-						<option value="1">1%</option>
-						<option value="4">4%</option>
-						<option value="8">8%</option>
-						<option value="13">13%</option>
-					</select>
-				</div>
+				<label>[[#{product.IvaFee}]]</label>
+				<select disabled th:field="${productDTO.ivaFee}">
+					<option value="0">0%</option>
+					<option value="0.5">0.5%</option>
+					<option value="1">1%</option>
+					<option value="4">4%</option>
+					<option value="8">8%</option>
+					<option value="13">13%</option>
+				</select>
 			</div>
-			<a href="/products">Back</a>
+			<a href="/products">[[#{action.Back}]]</a>
 		</div>
 		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 	</body>
