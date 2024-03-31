@@ -27,7 +27,7 @@
 				</ul>
 			</label>
 			<label>[[#{product.Description}]]
-				<input th:field="${productDTO.description}"></input>
+				<input th:field="${productDTO.description}"/>
 				<ul>
 					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('description')}"
 						 th:text="${error}"></li>

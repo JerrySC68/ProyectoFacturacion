@@ -43,7 +43,6 @@
 						<option value="m">Metro</option>
 						<option value="n">none</option>
 					</select>
-					<p th:error="${productDTO.measure}" th:if="${#fields.hasErrors('measure')}"></p>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
 							 th:text="${error}"></li>
