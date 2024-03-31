@@ -7,24 +7,23 @@
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
 		<h1>[[#{product.view.Title}]]</h1>
-		<div th:object="${productDTO}">
-			<div>
-				<label>[[#{product.Type}]]</label>
+		<div>
+			<label>[[#{product.Type}]]
 				<select disabled th:field="${productDTO.type}">
 					<option value="1">Product</option>
 					<option value="0">Service</option>
 				</select>
-			</div>
-			<div>
-				<label>[[#{product.Code}]]</label>
+			</label>
+			<br/><br/>
+			<label>[[#{product.Code}]]
 				<input disabled th:field="${productDTO.code}"/>
-			</div>
-			<div>
-				<label>[[#{product.Description}]]</label>
+			</label>
+			<br/><br/>
+			<label>[[#{product.Description}]]
 				<input disabled th:field="${productDTO.description}"/>
-			</div>
-			<div>
-				<label>[[#{product.Measure}]]</label>
+			</label>
+			<br/><br/>
+			<label>[[#{product.Measure}]]
 				<select disabled th:field="${productDTO.measure}">
 					<option value="u">Unit</option>
 					<option value="kg">Kilogram</option>
@@ -32,13 +31,13 @@
 					<option value="m">Metro</option>
 					<option value="n">none</option>
 				</select>
-			</div>
-			<div>
-				<label>[[#{product.Price}]]</label>
+			</label>
+			<br/><br/>
+			<label>[[#{product.Price}]]
 				<input disabled min="0" th:field="${productDTO.price}" type="number">
-			</div>
-			<div>
-				<label>[[#{product.IvaFee}]]</label>
+			</label>
+			<br/><br/>
+			<label>[[#{product.IvaFee}]]
 				<select disabled th:field="${productDTO.ivaFee}">
 					<option value="0">0%</option>
 					<option value="0.5">0.5%</option>
@@ -47,7 +46,8 @@
 					<option value="8">8%</option>
 					<option value="13">13%</option>
 				</select>
-			</div>
+			</label>
+			<br/><br/>
 			<a href="/products">[[#{action.Back}]]</a>
 		</div>
 		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>

@@ -10,8 +10,7 @@
 		<h1>[[#{product.create.Title}]]</h1>
 		<form enctype="multipart/form-data" method="post" th:object="${productDTO}">
 			<div>
-				<div>
-					<label>[[#{product.Type}]]</label>
+				<label>[[#{product.Type}]]
 					<select th:field="${productDTO.type}">
 						<option value="1">Product</option>
 						<option value="0">Service</option>
@@ -20,26 +19,23 @@
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
-				<div>
-					<label>[[#{product.Code}]]</label>
+				</label>
+				<label>[[#{product.Code}]]
 					<input th:field="${productDTO.code}"/>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('code')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
-				<div>
-					<label>[[#{product.Description}]]</label>
+				</label>
+				<label>[[#{product.Description}]]
 					<input th:field="${productDTO.description}"/>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}"
 							 th:each="error : ${#fields.errors('description')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
-				<div>
-					<label>[[#{product.Measure}]]</label>
+				</label>
+				<label>[[#{product.Measure}]]
 					<select th:field="${productDTO.measure}">
 						<option value="u">Unit</option>
 						<option value="kg">Kilogram</option>
@@ -52,17 +48,15 @@
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
-				<div>
-					<label>[[#{product.Price}]]</label>
+				</label>
+				<label>[[#{product.Price}]]
 					<input min="0" th:field="${productDTO.price}" type="number">
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('price')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
-				<div>
-					<label>[[#{product.IvaFee}]]</label>
+				</label>
+				<label>[[#{product.IvaFee}]]
 					<select th:field="${productDTO.ivaFee}">
 						<option value="0">0%</option>
 						<option value="0.5">0.5%</option>
@@ -75,7 +69,7 @@
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('ivaFee')}"
 							 th:text="${error}"></li>
 					</ul>
-				</div>
+				</label>
 				<button type="submit">[[#{action.Submit}]]</button>
 				<a href="/products">[[#{action.Back}]]</a>
 			</div>
