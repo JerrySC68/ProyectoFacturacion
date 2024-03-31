@@ -12,8 +12,8 @@
 			<div>
 				<label>[[#{product.Type}]]
 					<select th:field="${productDTO.type}">
-						<option value="1">Product</option>
-						<option value="0">Service</option>
+						<option value="1">[[#{product.type.Product}]]</option>
+						<option value="0">[[#{product.type.Service}]]</option>
 					</select>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
@@ -37,11 +37,11 @@
 				</label>
 				<label>[[#{product.Measure}]]
 					<select th:field="${productDTO.measure}">
-						<option value="u">Unit</option>
-						<option value="kg">Kilogram</option>
-						<option value="l">Liter</option>
-						<option value="m">Metro</option>
-						<option value="n">none</option>
+						<option value="u">[[#{product.measure.Unit}]]</option>
+						<option value="kg">[[#{product.measure.Kilogram}]]</option>
+						<option value="l">[[#{product.measure.Liter}]]</option>
+						<option value="m">[[#{product.measure.Meter}]]</option>
+						<option value="n">[[#{product.measure.None}]]</option>
 					</select>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"

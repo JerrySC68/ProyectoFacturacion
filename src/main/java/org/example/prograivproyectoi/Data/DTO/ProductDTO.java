@@ -15,7 +15,7 @@ public class ProductDTO
     @NotEmpty(message = "{error.Empty}")
     private String code;
     @NotEmpty(message = "{error.Empty}")
-    @Size(max = 2000, message = "La descripción del producto no puede tener más de 1000 caracteres")
+    @Size(max = 2000, message = "{error.Max1000}")
     private String description;
     @NotEmpty(message = "{error.Empty}")
     private String measure;
