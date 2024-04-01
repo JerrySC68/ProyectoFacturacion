@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,16 +21,17 @@
         <div class="column">
             <label for="clienteCedula">Cédula del Cliente:</label>
             <input type="text" id="clienteCedula" name="clienteCedula" th:field="*{clienteCedula}" required>
-            <label for="productoId">ID del Producto:</label>
-            <input type="text" id="productoId" name="productoId" th:field="*{productoId}" required>
-            <label for="productoCantidad">Cantidad del Producto:</label>
-            <input type="number" id="productoCantidad" name="productoCantidad" th:field="*{productoCantidad}" required>
+            <div th:each="producto, status : *{factura.productos}">
+                <div>
+                    <label for="productoId">ID del Producto:</label>
+                    <input type="text" th:id="'productoId' + ${status.index}" th:name="'productos[' + ${status.index} + '].id'" th:value="*{producto.id}" required>
+                    <label for="productoCantidad">Cantidad del Producto:</label>
+                    <input type="number" th:id="'productoCantidad' + ${status.index}" th:name="'productos[' + ${status.index} + '].cantidad'" th:value="*{producto.cantidad}" required min="0" max="100">
+                </div>
+            </div>
         </div>
     </div>
     <button class="button" style="vertical-align:middle"><span>Registrar Factura</span></button>
 </form>
 </body>
 </html>
-
-
-
