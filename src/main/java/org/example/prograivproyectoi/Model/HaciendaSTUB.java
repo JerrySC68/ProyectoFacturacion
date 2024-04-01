@@ -61,4 +61,9 @@ public class HaciendaSTUB
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
+
+    private void init()
+    {
+        System.out.println("HaciendaSTUB.init");
+    }
 }

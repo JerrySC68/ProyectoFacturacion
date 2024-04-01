@@ -37,9 +37,9 @@ public class MainController
     }
 
 
-    public String prueba()
+    public String prueba2()
     {
-        return haciendaSTUBController.prueba();
+        return "Prueba 2";
     }
 }
 
