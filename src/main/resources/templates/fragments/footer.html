@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Footer</title>
+		<link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+	</head>
+	<body th:fragment="footer" >
+		<div th:align="center">
+			&copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2024</span>
+			<label>[[#{idioma.Idioma}]]</label>
+			<form method="get">
+				<button type="submit" name="lang" value="en" th:class="${#locale.language == 'en'} ? 'active' : ''">[[#{idioma.English}]]</button>
+				<button type="submit" name="lang" value="es" th:class="${#locale.language == 'es'} ? 'active' : ''">[[#{idioma.Español}]]</button>
+				<button type="submit" name="lang" value="it" th:class="${#locale.language == 'it'} ? 'active' : ''">[[#{idioma.Italiano}]]</button>
+			</form>
+		</div>
+	</body>
+</html>

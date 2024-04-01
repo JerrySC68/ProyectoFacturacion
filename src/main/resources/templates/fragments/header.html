@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link> rel="stylesheet" th:href="@{/css/style.css}"/>
+	</head>
+	<body>
+		<nav th:fragment="header">
+			<div>
+				<a href="/main">[[#{header.Home}]]</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul >
+					<li>
+						<a th:href="@{/products}">[[#{header.Products}]]</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a>
+							<a th:href="@{/}">[[#{header.SingOut}]]</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+</html>
