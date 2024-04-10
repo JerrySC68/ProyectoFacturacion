@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>[[#{producto.Title}]]</title>
+		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<h1>[[#{producto.Title}]]</h1>
+		<a th:href="@{/presentantion/productos/create}">[[#{action.Create}]]</a>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>[[#{producto.Code}]]</th>
+						<th>[[#{producto.Description}]]</th>
+						<th>[[#{producto.Price}]]</th>
+						<th>[[#{table.Action}]]</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="producto : ${productos}">
+						<td th:text="${producto.code}"></td>
+						<td th:text="${producto.description}"></td>
+						<td th:text="${producto.price}"></td>
+						<td>
+							<a th:href="@{/presentantion/productos/view(id=${producto.id})}">[[#{action.View}]]</a>
+							<a th:href="@{/presentantion/productos/edit(id=${producto.id})}">[[#{action.Edit}]]</a>
+							<a th:href="@{/presentantion/productos/delete(id=${producto.id})}" th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
+	</body>
+</html>

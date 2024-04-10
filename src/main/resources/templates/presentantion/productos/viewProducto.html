@@ -2,29 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>[[#{product.view.Title}]]</title>
+		<title>[[#{producto.view.Title}]]</title>
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
-		<h1>[[#{product.view.Title}]]</h1>
+		<h1>[[#{producto.view.Title}]]</h1>
 		<div>
-			<label>[[#{product.Type}]]
-				<select disabled th:field="${productDTO.type}">
+			<label>[[#{producto.Type}]]
+				<select disabled th:field="${producto.type}">
 					<option value="1">Product</option>
 					<option value="0">Service</option>
 				</select>
 			</label>
 			<br/><br/>
-			<label>[[#{product.Code}]]
-				<input disabled th:field="${productDTO.code}"/>
+			<label>[[#{producto.Code}]]
+				<input disabled th:field="${producto.code}"/>
 			</label>
 			<br/><br/>
-			<label>[[#{product.Description}]]
-				<input disabled th:field="${productDTO.description}"/>
+			<label>[[#{producto.Description}]]
+				<input disabled th:field="${producto.description}"/>
 			</label>
 			<br/><br/>
-			<label>[[#{product.Measure}]]
-				<select disabled th:field="${productDTO.measure}">
+			<label>[[#{producto.Measure}]]
+				<select disabled th:field="${producto.measure}">
 					<option value="u">Unit</option>
 					<option value="kg">Kilogram</option>
 					<option value="l">Liter</option>
@@ -33,12 +33,12 @@
 				</select>
 			</label>
 			<br/><br/>
-			<label>[[#{product.Price}]]
-				<input disabled min="0" th:field="${productDTO.price}" type="number">
+			<label>[[#{producto.Price}]]
+				<input disabled min="0" th:field="${producto.price}" type="number">
 			</label>
 			<br/><br/>
-			<label>[[#{product.IvaFee}]]
-				<select disabled th:field="${productDTO.ivaFee}">
+			<label>[[#{producto.IvaFee}]]
+				<select disabled th:field="${producto.ivaFee}">
 					<option value="0">0%</option>
 					<option value="0.5">0.5%</option>
 					<option value="1">1%</option>
@@ -48,7 +48,7 @@
 				</select>
 			</label>
 			<br/><br/>
-			<a href="/products">[[#{action.Back}]]</a>
+			<a href="/presentantion/productos">[[#{action.Back}]]</a>
 		</div>
 		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 	</body>

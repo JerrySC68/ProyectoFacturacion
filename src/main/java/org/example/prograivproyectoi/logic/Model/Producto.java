@@ -1,15 +1,21 @@
-package org.example.prograivproyectoi.Data.DTO;
+package org.example.prograivproyectoi.logic.Model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class ProductDTO
+@Entity
+public class Producto
 {
     //-----------------------------------------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------------------------------------
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @NotNull(message = "{error.Empty}")
     private Boolean type;
     @NotEmpty(message = "{error.Empty}")
@@ -27,8 +33,31 @@ public class ProductDTO
     private Double ivaFee;
 
     //-----------------------------------------------------------------------------------------
+    //Constructores
+    //-----------------------------------------------------------------------------------------
+    public Producto() {
+    }
+
+    public Producto(Boolean type, String code, String description, String measure, Double price, Double ivaFee) {
+        this.type = type;
+        this.code = code;
+        this.description = description;
+        this.measure = measure;
+        this.price = price;
+        this.ivaFee = ivaFee;
+    }
+
+    //-----------------------------------------------------------------------------------------
     //Getters y Setters
     //-----------------------------------------------------------------------------------------
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Boolean getType() {
         return type;
     }

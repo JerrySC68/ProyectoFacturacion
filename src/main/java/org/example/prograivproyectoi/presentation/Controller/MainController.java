@@ -1,4 +1,4 @@
-package org.example.prograivproyectoi.Controller;
+package org.example.prograivproyectoi.presentation.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,9 +19,6 @@ public class MainController
     @Autowired
     LocaleResolver localeResolver;
 
-    @Autowired
-    HaciendaSTUBController haciendaSTUBController;
-
     @GetMapping({"", "/"})
     public String showIndex(Model model, HttpServletRequest request, HttpServletResponse response,
                             @RequestParam(name = "lang", required = false) String lang)
@@ -30,16 +27,7 @@ public class MainController
             localeResolver.setLocale(request, response, new Locale(lang));
         }
 
-        String resultado = haciendaSTUBController.prueba();
-        model.addAttribute("resultado", resultado);
-
         return "main";
-    }
-
-
-    public String prueba2()
-    {
-        return "Prueba 2";
     }
 }
 

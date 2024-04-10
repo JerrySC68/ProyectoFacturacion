@@ -2,61 +2,61 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>[[#{product.create.Title}]]</title>
+		<title>[[#{producto.create.Title}]]</title>
 		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
-		<h1>[[#{product.create.Title}]]</h1>
-		<form enctype="multipart/form-data" method="post" th:object="${productDTO}">
+		<h1>[[#{producto.create.Title}]]</h1>
+		<form enctype="multipart/form-data" method="post" th:object="${producto}">
 			<div>
-				<label>[[#{product.Type}]]
-					<select th:field="${productDTO.type}">
-						<option value="1">[[#{product.type.Product}]]</option>
-						<option value="0">[[#{product.type.Service}]]</option>
+				<label>[[#{producto.Type}]]
+					<select th:field="${producto.type}">
+						<option value="1">[[#{producto.type.Product}]]</option>
+						<option value="0">[[#{producto.type.Service}]]</option>
 					</select>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<label>[[#{product.Code}]]
-					<input th:field="${productDTO.code}"/>
+				<label>[[#{producto.Code}]]
+					<input th:field="${producto.code}"/>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('code')}"
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<label>[[#{product.Description}]]
-					<input th:field="${productDTO.description}"/>
+				<label>[[#{producto.Description}]]
+					<input th:field="${producto.description}"/>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}"
 							 th:each="error : ${#fields.errors('description')}"
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<label>[[#{product.Measure}]]
-					<select th:field="${productDTO.measure}">
-						<option value="u">[[#{product.measure.Unit}]]</option>
-						<option value="kg">[[#{product.measure.Kilogram}]]</option>
-						<option value="l">[[#{product.measure.Liter}]]</option>
-						<option value="m">[[#{product.measure.Meter}]]</option>
-						<option value="n">[[#{product.measure.None}]]</option>
+				<label>[[#{producto.Measure}]]
+					<select th:field="${producto.measure}">
+						<option value="u">[[#{producto.measure.Unit}]]</option>
+						<option value="kg">[[#{producto.measure.Kilogram}]]</option>
+						<option value="l">[[#{producto.measure.Liter}]]</option>
+						<option value="m">[[#{producto.measure.Meter}]]</option>
+						<option value="n">[[#{producto.measure.None}]]</option>
 					</select>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<label>[[#{product.Price}]]
-					<input min="0" th:field="${productDTO.price}" type="number">
+				<label>[[#{producto.Price}]]
+					<input min="0" th:field="${producto.price}" type="number">
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('price')}"
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<label>[[#{product.IvaFee}]]
-					<select th:field="${productDTO.ivaFee}">
+				<label>[[#{producto.IvaFee}]]
+					<select th:field="${producto.ivaFee}">
 						<option value="0">0%</option>
 						<option value="0.5">0.5%</option>
 						<option value="1">1%</option>
@@ -70,7 +70,7 @@
 					</ul>
 				</label>
 				<button type="submit">[[#{action.Submit}]]</button>
-				<a href="/products">[[#{action.Back}]]</a>
+				<a href="/presentantion/productos">[[#{action.Back}]]</a>
 			</div>
 		</form>
 		<div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>

@@ -1,16 +1,10 @@
-package org.example.prograivproyectoi.Controller;
+package org.example.prograivproyectoi.presentation.Controller;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.example.prograivproyectoi.Data.DTO.ProductDTO;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.ui.Model;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -47,6 +41,7 @@ public class WebMvcConfig implements WebMvcConfigurer
     //-----------------------------------------------------------------------------------------
     @Bean
     public LocaleResolver localeResolver() {
+
         CookieLocaleResolver resolver = new CookieLocaleResolver();
         resolver.setDefaultLocale(Locale.US);
         resolver.setCookieName("myLocaleCookie");
@@ -54,14 +49,16 @@ public class WebMvcConfig implements WebMvcConfigurer
     }
 
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
+    public LocaleChangeInterceptor localeChangeInterceptor()
+    {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
         return lci;
     }
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(InterceptorRegistry registry)
+    {
         registry.addInterceptor(localeChangeInterceptor());
     }
 }
