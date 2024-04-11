@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>[[#{cliente.view.Title}]]</title>
+	</head>
+	<body>
+		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<h1>[[#{cliente.view.Title}]]</h1>
+		<div>
+			<label>[[#{cliente.Id}]]
+				<input disabled th:field="${cliente.id}"/>
+			</label>
+			<br/><br/>
+			<label>[[#{cliente.Name}]]
+				<input disabled th:field="${cliente.name}"/>
+			</label>
+			<br/><br/>
+			<label>[[#{cliente.Email}]]
+				<input disabled th:field="${cliente.email}"/>
+			</label>
+			<br/><br/>
+			<a href="/presentantion/clientes">[[#{action.Back}]]</a>
+		</div>
+		<div th:insert="~{fragments/footer :: footer}"></div>
+	</body>
+</html>

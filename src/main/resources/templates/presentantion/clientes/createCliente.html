@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>[[#{cliente.create.Title}]]</title>
+		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
+	</head>
+	<body>
+		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<h1>[[#{cliente.create.Title}]]</h1>
+		<form enctype="multipart/form-data" method="post" th:object="${cliente}">
+			<div>
+				<label>[[#{cliente.Id}]]
+					<input th:field="${cliente.id}"/>
+					<button type="button" id="getClienteHacienda" value="getClienteHacienda" >Buscar</button>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
+							 th:text="${error}"></li>
+					</ul>
+				</label>
+				<label>[[#{cliente.Name}]]
+					<input disabled th:field="${cliente.name}"/>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('name')}"
+							 th:text="${error}"></li>
+					</ul>
+				</label>
+				<label>[[#{cliente.Email}]]
+					<input disabled th:field="${cliente.email}"/>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('email')}"
+							 th:text="${error}"></li>
+					</ul>
+				</label>
+				<button type="submit">[[#{action.Submit}]]</button>
+				<a href="/presentantion/clientes">[[#{action.Back}]]</a>
+			</div>
+		</form>
+		<div th:insert="~{fragments/footer :: footer}"></div>
+	</body>
+</html>

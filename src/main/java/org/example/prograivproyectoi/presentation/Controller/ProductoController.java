@@ -158,11 +158,10 @@ public class ProductoController
         try
         {
             Producto producto = service.getProductoById(id);
-
-            if(producto == null){System.out.println("Id vacia");}else{System.out.println("ID llena");}
-
             model.addAttribute("producto", producto);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             System.out.println("Error: " + e.getMessage());
             return "redirect:/presentantion/productos";
         }
