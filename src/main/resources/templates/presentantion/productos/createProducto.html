@@ -8,7 +8,7 @@
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
 		<h1>[[#{producto.create.Title}]]</h1>
-		<form enctype="multipart/form-data" method="post" th:object="${producto}">
+		<form enctype="multipart/form-data" method="post" th:action="@{/presentantion/clientes/createCliente.html}" th:object="${producto}">
 			<div>
 				<label>[[#{producto.Type}]]
 					<select th:field="${producto.type}">

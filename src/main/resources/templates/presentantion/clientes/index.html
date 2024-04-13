@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header">&nbsp;</div>
-		<h1>[[#{producto.Title}]]</h1>
+		<h1>[[#{cliente.Title}]]</h1>
 		<a th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
 		<div>
 			<table>
@@ -26,7 +26,8 @@
 						<td th:text="${cliente.email}"></td>
 						<td>
 							<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}">[[#{action.View}]]</a>
-							<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}" th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+							<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
+								th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
 						</td>
 					</tr>
 				</tbody>

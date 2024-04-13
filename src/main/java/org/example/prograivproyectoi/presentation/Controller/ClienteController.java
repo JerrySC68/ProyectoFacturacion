@@ -2,10 +2,13 @@ package org.example.prograivproyectoi.presentation.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.example.prograivproyectoi.logic.Model.Cliente;
 import org.example.prograivproyectoi.logic.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +26,11 @@ public class ClienteController {
 
     @Autowired
     LocaleResolver localeResolver;
+    @Qualifier("messageSource")
+    @Autowired
+    private MessageSource messageSource;
+    @Autowired
+    private HttpSession httpSession;
 
     //--------------------------------------------------------------------------------
     //Muestra la lista de clientes
@@ -37,8 +45,10 @@ public class ClienteController {
         }
 
         List<Cliente> clientes = service.getClienteList();
+        String id = null;
 
         model.addAttribute("clientes", clientes);
+        model.addAttribute("idBuscar", id);
 
         return "presentantion/clientes/index";
     }
@@ -55,17 +65,30 @@ public class ClienteController {
             localeResolver.setLocale(request, response, new Locale(lang));
         }
 
-        Cliente cliente = new Cliente();
-        model.addAttribute("cliente", cliente);
+        System.out.println("Dentro de Show Create");
+        System.out.println("Model: " + model.toString());
+
+        if (model.getAttribute("cliente") == null) {
+            System.out.println("Cliente es null");
+            Cliente cliente = new Cliente();
+            model.addAttribute("cliente", cliente);
+        } else {
+            System.out.println("Cliente no es null");
+
+        }
 
         return "presentantion/clientes/createCliente";
     }
 
     @PostMapping("/create")
-    public String createCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result) {
+    public String createCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result)
+    {
+        System.out.println("Dentro de Create");
         //--------------------------------------------------------------------------------
-        //Validación
+        // Si hay errores en el formulario, se regresa  a la pagina de creación
         //--------------------------------------------------------------------------------
+        System.out.println("Dentro de Create");
+
         if (result.hasErrors()) {
             return "presentantion/clientes/createCliente";
         }
@@ -74,19 +97,46 @@ public class ClienteController {
         return "redirect:/presentantion/clientes";
     }
 
+    @PostMapping(value = "/create", params = "add")
+    public String addCliente(@RequestParam("id") String id, Model model) throws Exception
+    {
+        try {
+            Cliente pCliente = service.getClienteHacienda(id);
+
+            if (pCliente == null)
+            {
+                pCliente = new Cliente();
+                model.addAttribute("cliente", pCliente);
+                throw new Exception("error.NotFind");
+            }
+
+            model.addAttribute("cliente", pCliente);
+        }
+        catch (Exception e)
+        {
+            String error =  messageSource.getMessage(e.getMessage(), null, Locale.getDefault());
+
+            System.out.println("Error: " + error);
+            model.addAttribute("error", error);;
+            return "presentantion/clientes/createCliente";
+        }
+
+        return "presentantion/clientes/createCliente";
+    }
+
     //--------------------------------------------------------------------------------
     // View
     //--------------------------------------------------------------------------------
     @GetMapping("/view")
-    public String showClienteViewPage(@RequestParam("id") String id, Model model) {
-        try
-        {
+    public String showClienteViewPage(Model model, @RequestParam("id") String id) {
+        try {
             Cliente cliente = service.getClienteById(id);
             model.addAttribute("cliente", cliente);
         } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
+            System.out.println("Error: " + e.getMessage());
+            return "redirect:/presentantion/clientes";
         }
-        return "presentantion/clientes/viewCliente";
+        return "/presentantion/clientes/viewCliente";
     }
 
     //--------------------------------------------------------------------------------
@@ -94,26 +144,15 @@ public class ClienteController {
     //--------------------------------------------------------------------------------
     @GetMapping("/delete")
     public String deleteCliente(@RequestParam("id") String id) {
-        try
-        {
+        try {
             service.deleteCliente(id);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         return "redirect:/presentantion/clientes";
     }
 
     //--------------------------------------------------------------------------------
-    //Otros
+    // Otros
     //--------------------------------------------------------------------------------
-    @GetMapping("/getClienteHacienda")
-    public String getClienteHacienda(Model model, @RequestParam("id") String id) {
-        System.out.println("ID: " + id);
-        Cliente cliente = service.getClienteById(id);
-        System.out.println("pCliente: " + cliente.getId());
-        model.addAttribute("cliente", cliente);
-
-        return "redirect:/presentantion/createCliente";
-    }
 }

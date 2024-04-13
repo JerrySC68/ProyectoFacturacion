@@ -5,8 +5,7 @@ import org.example.prograivproyectoi.logic.Model.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HaciendaSTUBRepository
-{
+public class HaciendaSTUBRepository {
     //------------------------------------------------------------------------------------------
     // Singleton
     //------------------------------------------------------------------------------------------
@@ -20,26 +19,34 @@ public class HaciendaSTUBRepository
     //------------------------------------------------------------------------------------------
     // Constructor
     //------------------------------------------------------------------------------------------
-    public HaciendaSTUBRepository()
-    {
+    public HaciendaSTUBRepository() {
         clientes = new ArrayList<Cliente>();
         Cliente pcliente;
 
-        clientes.add(new Cliente("117010975","Rodrigo","rodrigo@gmail.com"));
+        clientes.add(new Cliente("117010975", "Rodrigo", "rodrigo@gmail.com"));
+        System.out.println("Hacienda num elements: " + clientes.size());
     }
 
     //------------------------------------------------------------------------------------------
     // Metodos
     //------------------------------------------------------------------------------------------
-    public Cliente getClienteById(String id)
-    {
-        for (Cliente cliente : clientes)
+    public Cliente getClienteById(String id) throws Exception {
+        try
         {
-            if (cliente.getId().equals(id))
+            for (Cliente cliente : clientes)
             {
-                return cliente;
+                if (cliente.getId().equals(id))
+                {
+                    return cliente;
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
         return null;
+    }
+
+    public int getNumClientes() {
+        return clientes.size();
     }
 }

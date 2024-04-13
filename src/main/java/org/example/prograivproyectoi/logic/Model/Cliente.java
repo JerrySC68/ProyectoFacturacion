@@ -12,6 +12,7 @@ public class Cliente
     //Atributos
     //-----------------------------------------------------------------------------------------
     @Id
+    @NotEmpty(message = "{error.Empty}")
     private String id;
 
     @NotEmpty(message = "{error.Empty}")
