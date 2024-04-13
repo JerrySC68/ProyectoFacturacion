@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>[[#{producto.edit.Title}]]</title>
-		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
-	</head>
+	<head th:replace="fragments/head"></head>
 	<body>
-		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
 		<h1>[[#{producto.edit.Title}]]</h1>
 		<form enctype="multipart/form-data" method="post" th:object="${producto}">
 			<label>[[#{producto.Type}]]
@@ -70,6 +72,9 @@
 			<button type="submit">[[#{action.Submit}]]</button>
 			<a href="/presentantion/productos">[[#{action.Back}]]</a>
 		</form>
-		<div th:insert="~{fragments/footer :: footer}"></div>
+		<!----------------------------------------------------------------
+		 Footer
+		---------------------------------------------------------------- -->
+		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

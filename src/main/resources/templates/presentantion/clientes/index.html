@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>[[#{producto.Title}]]</title>
-		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
-	</head>
+	<head th:replace="fragments/head"></head>
 	<body>
-		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
 		<h1>[[#{cliente.Title}]]</h1>
 		<a th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
 		<div>
@@ -33,6 +35,9 @@
 				</tbody>
 			</table>
 		</div>
-		<div th:insert="~{fragments/footer :: footer}"></div>
+		<!----------------------------------------------------------------
+		 Footer
+		---------------------------------------------------------------- -->
+		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

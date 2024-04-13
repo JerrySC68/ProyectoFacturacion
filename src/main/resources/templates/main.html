@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>[[#{main.Title}]]</title>
-		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
-	</head>
+	<head th:replace="fragments/head"></head>
 	<body>
-		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
 		<div>
 			<h1>[[#{main.Welcome}]]</h1>
 			<p th:text="${resultado}"></p>
 		</div>
-		<div th:insert="~{fragments/footer :: footer}"></div>
+		<!----------------------------------------------------------------
+		 Footer
+		---------------------------------------------------------------- -->
+		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<link> rel="stylesheet" th:href="@{/css/style.css}"/>
-	</head>
-	<body>
-		<nav th:fragment="header">
-			<div>
-				<a href="/main">[[#{header.Home}]]</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul >
-					<li>
-						<a th:href="@{/presentantion/productos}">[[#{header.Products}]]</a>
-					</li>
-				</ul>
-				<ul >
-					<li>
-						<a th:href="@{/presentantion/clientes}">[[#{header.Clientes}]]</a>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<a>
-							<a th:href="@{/}">[[#{header.SingOut}]]</a>
-						</a>
-					</li>
-				</ul>
-			</div>
+<header th:fragment="header">
+		<div class="logoHome">
+			<a href="/main">[[#{header.Home}]]</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a th:href="@{/presentantion/productos}">[[#{header.Products}]]</a></li>
+				<li><a th:href="@{/presentantion/clientes}">[[#{header.Clientes}]]</a></li>
+				<li><a th:href="@{/}">[[#{header.SingOut}]]</a></li>
+			</ul>
 		</nav>
-	</body>
-</html>
+</header>

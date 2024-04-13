@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>[[#{producto.view.Title}]]</title>
-	</head>
+	<head th:replace="fragments/head"></head>
 	<body>
-		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
 		<h1>[[#{producto.view.Title}]]</h1>
 		<div>
 			<label>[[#{producto.Type}]]
@@ -50,6 +53,9 @@
 			<br/><br/>
 			<a href="/presentantion/productos">[[#{action.Back}]]</a>
 		</div>
-		<div th:insert="~{fragments/footer :: footer}"></div>
+		<!----------------------------------------------------------------
+		 Footer
+		---------------------------------------------------------------- -->
+		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

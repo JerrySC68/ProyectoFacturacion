@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>[[#{cliente.create.Title}]]</title>
-		<link rel="stylesheet" th:href="@{/styles/css/style.css}">
-	</head>
+	<head th:replace="fragments/head"></head>
 	<body>
-		<div th:replace="fragments/header :: header">&nbsp;</div>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
 		<h1>[[#{cliente.create.Title}]]</h1>
 		<hr>
 		<form enctype="multipart/form-data" method="post" th:object="${cliente}">
@@ -38,6 +40,9 @@
 				<a href="/presentantion/clientes">[[#{action.Back}]]</a>
 			</div>
 		</form>
-		<div th:insert="~{fragments/footer :: footer}"></div>
+		<!----------------------------------------------------------------
+		 Footer
+		---------------------------------------------------------------- -->
+		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>
