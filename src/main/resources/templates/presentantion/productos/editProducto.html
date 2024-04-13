@@ -10,7 +10,7 @@
 		 Body
 		---------------------------------------------------------------- -->
 		<h1>[[#{producto.edit.Title}]]</h1>
-		<form enctype="multipart/form-data" method="post" th:object="${producto}">
+		<form enctype="multipart/form-data" method="post" th:object="${producto}" class="marco">
 			<label>[[#{producto.Type}]]
 				<select th:field="${producto.type}">
 					<option value="1">[[#{producto.type.Product}]]</option>

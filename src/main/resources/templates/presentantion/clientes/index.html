@@ -9,31 +9,35 @@
 		<!----------------------------------------------------------------
 		 Body
 		---------------------------------------------------------------- -->
-		<h1>[[#{cliente.Title}]]</h1>
-		<a th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
-		<div>
-			<table>
-				<thead>
-					<tr>
-						<th>[[#{cliente.Id}]]</th>
-						<th>[[#{cliente.Name}]]</th>
-						<th>[[#{cliente.Email}]]</th>
-						<th>[[#{table.Action}]]</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="cliente : ${clientes}">
-						<td th:text="${cliente.id}"></td>
-						<td th:text="${cliente.name}"></td>
-						<td th:text="${cliente.email}"></td>
-						<td>
-							<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}">[[#{action.View}]]</a>
-							<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
-								th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="table">
+			<h1>[[#{cliente.Title}]]</h1>
+			<div class="create">
+				<a th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
+			</div>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th>[[#{cliente.Id}]]</th>
+							<th>[[#{cliente.Name}]]</th>
+							<th>[[#{cliente.Email}]]</th>
+							<th>[[#{table.Action}]]</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="cliente : ${clientes}">
+							<td th:text="${cliente.id}"></td>
+							<td th:text="${cliente.name}"></td>
+							<td th:text="${cliente.email}"></td>
+							<td>
+								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}">[[#{action.View}]]</a>
+								<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
+									th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<!----------------------------------------------------------------
 		 Footer

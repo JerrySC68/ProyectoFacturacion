@@ -19,8 +19,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px;
-    padding-right: 25px;
+    padding: 20px;
     max-height: 50px;
 }
 
@@ -42,8 +41,11 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
+    background-color: #B74803;
+    color: white;
+    padding: 0.75em;
+    border-radius: 0.5em;
 }
 
 footer {
@@ -58,8 +60,87 @@ footer {
 max-height: 40px;
 }
 
+footer button {
+    background-color: #B74803;
+    color: white;
+    width: 10%;
+    height: 10%;
+    padding: 0.25em;
+    border-radius: 0.5em;
+    border: none;
+}
 
 .error {
     color: red;
+    font-weight: bold;
+}
+
+.create {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.table {
+    margin: auto;
+    width: 90%;
+}
+
+table {
+    margin: auto;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #022e51;
+
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+}
+
+table td{
+    padding: 0.5em;
+}
+
+table tr:hover {
+    background-color: #a3b4c8;
+}
+
+a {
+    text-decoration: none;
+    background-color: #B74803;
+    color: white;
+    padding: 0.30em;
+    border-radius: 0.5em;
+    margin:3px;
+}
+
+button{
+    text-decoration: none;
+    padding: 0.30em;
+    border-radius: 0.5em;
+    margin:3px;
+}
+
+.marco {
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #A3B4C8;
+    justify-content: center;
+    text-align: right;
+    align-items: center;
+    padding: 1em;
+    gap: 0.5em;
+    margin: 1em;
+}
+
+.marco input, .marco select {
+    width: 50%;
+}
+
+.marco label {
     font-weight: bold;
 }

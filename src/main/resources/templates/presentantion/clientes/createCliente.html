@@ -10,8 +10,7 @@
 		 Body
 		---------------------------------------------------------------- -->
 		<h1>[[#{cliente.create.Title}]]</h1>
-		<hr>
-		<form enctype="multipart/form-data" method="post" th:object="${cliente}">
+		<form enctype="multipart/form-data" method="post" th:object="${cliente}" class="marco">
 			<div>
 				<label>[[#{cliente.Id}]]
 					<input th:field="${cliente.id}" th:required="required"/>
