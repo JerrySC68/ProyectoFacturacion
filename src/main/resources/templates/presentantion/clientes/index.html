@@ -2,17 +2,13 @@
 <html lang="en">
 	<head th:replace="fragments/head"></head>
 	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
+
 		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
+
 		<div class="table">
 			<h1>[[#{cliente.Title}]]</h1>
 			<div class="create">
-				<a th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
+				<a class="boton-create" th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
 			</div>
 			<div>
 				<table>
@@ -34,18 +30,15 @@
 							<td th:text="${cliente.telefono}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td>
-								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}"><img class="imagen-view" src="/images/eye.jpg" alt="view"></a>
+								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
 								<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
-									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete"	src="/images/X-roja.jpg" alt="delete"></a>
+									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete"	src="/images/delete.png" alt="delete"></a>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
 		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

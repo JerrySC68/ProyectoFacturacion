@@ -12,7 +12,7 @@
 		<div class="table">
 			<h1>[[#{producto.Title}]]</h1>
 			<div class="create">
-				<a  th:href="@{/presentantion/productos/create}">[[#{action.Create}]]</a>
+				<a class="boton-create" th:href="@{/presentantion/productos/create}">[[#{action.Create}]]</a>
 			</div>
 			<div>
 				<table>
@@ -30,10 +30,10 @@
 							<td th:text="${producto.description}"></td>
 							<td th:text="${producto.price}"></td>
 							<td>
-								<a th:href="@{/presentantion/productos/view(id=${producto.id})}">[[#{action.View}]]</a>
-								<a th:href="@{/presentantion/productos/edit(id=${producto.id})}">[[#{action.Edit}]]</a>
+								<a th:href="@{/presentantion/productos/view(id=${producto.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
+								<a th:href="@{/presentantion/productos/edit(id=${producto.id})}"><img class="imagen-edit" src="/images/editar.png" alt="edit"></a>
 								<a th:href="@{/presentantion/productos/delete(id=${producto.id})}"
-									th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete" src="/images/delete.png" alt=""></a>
 							</td>
 						</tr>
 					</tbody>
