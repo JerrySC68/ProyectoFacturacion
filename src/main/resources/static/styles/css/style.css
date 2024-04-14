@@ -25,14 +25,14 @@ header {
     overflow: hidden;
 }
 
-.logoHome {
+.logoHome{
     width: 20rem;
     height: 6rem;
     padding-top: 4.1rem;
     padding-bottom: 5rem;
 }
 
-.listaHeader a {
+.listaHeader a{
     flex-direction: column;
     margin: 10px 20px;
     align-items: center;
@@ -56,8 +56,9 @@ footer {
     color: white;
     text-align: center;
     align-items: center;
-    padding: 10px;
-    max-height: 40px;
+
+max-height: 40px;
+    padding-bottom: 3rem;
 }
 
 footer button {
@@ -81,67 +82,46 @@ footer button {
     margin-bottom: 10px;
 }
 
-.table {
+.tabla-productos, .tabla-Cliente, .tabla-Factura {
     margin: auto;
     width: 90%;
 }
 
-table {
+.tabla-productos table,.tabla-Cliente table, .tabla-Factura table {
     margin: auto;
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-table th {
+.tabla-productos table th,.tabla-Cliente table th, .tabla-Factura table th{
     background-color: #022e51;
     color: white;
     font-weight: bold;
     padding: 1em;
 }
 
-table td {
+.tabla-productos table td,.tabla-Cliente table td, .tabla-Factura table td {
     padding: 0.5em;
 }
 
-a {
-    text-decoration: none;
-    background-color: #B74803;
-    color: white;
-    padding: 0.30em;
-    border-radius: 0.5em;
-    margin: 3px;
-    overflow: hidden;
-    align-content: center;
-    text-align: center;
-    justify-content: center;
-}
-
-a img {
-    padding: 0px;
-    margin: 0px;
-    width: auto;
-    height: 25px;
-    overflow: hidden;
-}
-
-button {
+button{
     text-decoration: none;
     padding: 0.30em;
     border-radius: 0.5em;
-    margin: 3px;
+    margin:3px;
 }
 
 .marco {
     display: inline-block;
-    border-radius: 15px;
+    border-radius: 1rem;
     background-color: #A3B4C8;
     justify-content: center;
     text-align: right;
     align-items: center;
-    padding: 1em;
-    gap: 0.5em;
-    margin: 1em;
+    padding: 1rem;
+    gap: 0.5rem;
+    margin: 1rem;
 }
 
 .marco input, .marco select {
@@ -152,16 +132,23 @@ button {
     font-weight: bold;
 }
 
-.imagen-edit, .imagen-delete, .imagen-view {
+.imagenes-select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem;
+}
+.imagen-edit,.imagen-delete,.imagen-view{
     background: none;
     width: 3.5rem;
     height: 3.5rem;
 }
 
-.imagen-edit, .imagen-delete:hover, .imagen-view:hover {
+.imagen-edit,.imagen-delete:hover,.imagen-view:hover{
     transform: scale(1.1);
 }
-
 .boton-create {
     margin-bottom: 7rem;
     font-weight: bold;
