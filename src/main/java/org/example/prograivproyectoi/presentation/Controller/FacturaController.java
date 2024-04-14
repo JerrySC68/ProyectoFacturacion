@@ -97,16 +97,12 @@ public class FacturaController {
             try {
                 Factura factura = new Factura();
 
-                //factura.setCode("1");
                 factura.setCedulaProveedor("1");
                 factura.setCedulaCliente(cliente.getId());
                 factura.setTipoPago(tipoPago);
                 factura.setFinalPrice(producto.getPrice());
                 factura.setDate(fecha);
                 factura.getListProducts().add(producto);
-
-
-                System.out.println("Factura: " + factura);
 
                 service.addFactura(factura);
             } catch (Exception e) {
