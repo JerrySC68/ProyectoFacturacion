@@ -14,7 +14,7 @@
 			<div>
 				<label>[[#{cliente.Id}]]
 					<input th:field="${cliente.id}" th:required="required"/>
-					<button name="add" type="submit" value="add">[[#{action.Search}]]</button>
+					<button class="boton-create"	 name="add" type="submit" value="add">[[#{action.Search}]]</button>
 					<ul>
 						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
 							 th:text="${error}"></li>
@@ -56,8 +56,8 @@
 							 th:text="${error}"></li>
 					</ul>
 				</label>
-				<button type="submit">[[#{action.Submit}]]</button>
-				<a href="/presentantion/clientes">[[#{action.Back}]]</a>
+				<button class="boton-create" type="submit">[[#{action.Submit}]]</button>
+				<a class="boton-create" href="/presentantion/clientes">[[#{action.Back}]]</a>
 			</div>
 		</form>
 		<!----------------------------------------------------------------

@@ -1,20 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario Factura</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/facturaMain.css}">
-</head>
+<head th:replace="fragments/head"></head>
 <body>
+<header th:replace="fragments/header :: header">&nbsp;</header>
 <div class="container">
-    <!-- Title -->
-    <div class="title">
-        <h2>Creando Factura</h2>
-    </div>
-
     <div class="d-flex">
-        <!-- Form Factura -->
-        <form class="form-Factura" th:action="@{/facturaForm}" th:object="${factura}" method="POST">
+        <h2>Creando Factura</h2>
+        <form class="marco" th:action="@{/facturaForm}" th:object="${factura}" method="POST">
             <label>
                 <span>Fecha Emisión<span class="required">*</span></span>
                 <input type="date" name="fecha">
@@ -24,7 +15,6 @@
                 <input type="text" name="code">
             </label>
 
-            <!-- Form Cliente -->
             <form class="form-Cliente" th:action="@{/clienteID}" th:object="${cliente}" method="POST">
                 <span>ID Cliente: <span th:text="${clienteID}"></span> </span>
                 <input type="text" name="clienteID">
@@ -32,7 +22,7 @@
             </form>
 
             <!-- Form Producto -->
-            <form class="form-Producto" th:action="@{/codigoProducto}" th:object="${product}" method="POST">
+            <form class="marco" th:action="@{/codigoProducto}" th:object="${product}" method="POST">
                 <span>Código Producto: <span th:text="${codigoP}"></span> </span>
                 <label><input type="text" name="codigoProduct"></label>
                 <button type="submit" style="width: 70px">Buscar</button>
@@ -100,6 +90,8 @@
             <button type="submit">Guardar</button>
         </div>
     </div>
+
 </div>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

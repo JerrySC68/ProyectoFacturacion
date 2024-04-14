@@ -2,12 +2,15 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif, Arial;
+
 }
 
 body {
     justify-content: center;
     text-align: center;
     align-items: center;
+    min-height: 100vh; /* Asegura que el cuerpo del documento tenga al menos la altura de la ventana del navegador */
+    padding-bottom: 50px;
 }
 
 header {
@@ -56,9 +59,9 @@ footer {
     color: white;
     text-align: center;
     align-items: center;
-
 max-height: 40px;
     padding-bottom: 3rem;
+    font-weight: bold;
 }
 
 footer button {
@@ -69,6 +72,7 @@ footer button {
     padding: 0.25em;
     border-radius: 0.5em;
     border: none;
+    font-weight: bold;
 }
 
 .error {
@@ -85,6 +89,7 @@ footer button {
 .tabla-productos, .tabla-Cliente, .tabla-Factura {
     margin: auto;
     width: 90%;
+    font-weight: bold;
 }
 
 .tabla-productos table,.tabla-Cliente table, .tabla-Factura table {
@@ -117,15 +122,33 @@ button{
     border-radius: 1rem;
     background-color: #A3B4C8;
     justify-content: center;
-    text-align: right;
+    text-align:left;
     align-items: center;
-    padding: 1rem;
+    padding: 2.5rem;
     gap: 0.5rem;
-    margin: 1rem;
+
+    margin-bottom: 50rem;
 }
 
 .marco input, .marco select {
     width: 50%;
+    background-color: #f0f0f0;
+
+
+    border: 1px solid #888;
+
+
+    padding: 10px;
+
+
+    margin: 5px;
+
+
+    border-radius: 5px;
+
+
+    font-family: "Rubik", sans-serif, Arial;
+
 }
 
 .marco label {
@@ -150,7 +173,6 @@ button{
     transform: scale(1.1);
 }
 .boton-create {
-    margin-bottom: 7rem;
     font-weight: bold;
     background-color: #B74803;
     color: white;
@@ -160,3 +182,4 @@ button{
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
+
