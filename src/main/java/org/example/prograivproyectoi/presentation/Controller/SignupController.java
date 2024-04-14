@@ -68,6 +68,6 @@ public class SignupController {
     public String proveedorProfile(@PathVariable("id") String id, Model model) {
         Proveedor proveedor = service.findProveedorById(id);
         model.addAttribute("proveedor", proveedor);
-        return "proveedor-profile";
+        return "presentantion/proveedor/proveedor-profile";
     }
 }
