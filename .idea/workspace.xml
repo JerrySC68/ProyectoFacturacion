@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="Facturación">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/FacturaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/FacturaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Factura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" afterDir="false" />
-    </list>
+    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="Creación de Facturas" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -317,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713119926986</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Creación de Facturas">
+      <option name="closed" value="true" />
+      <created>1713121346780</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713121346780</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,6 +354,7 @@
     <MESSAGE value="Multilenguaje SignUp" />
     <MESSAGE value="Boton Back SignUp" />
     <MESSAGE value="Facturación" />
-    <option name="LAST_COMMIT_MESSAGE" value="Facturación" />
+    <MESSAGE value="Creación de Facturas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creación de Facturas" />
   </component>
 </project>
