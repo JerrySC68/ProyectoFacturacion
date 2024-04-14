@@ -128,7 +128,13 @@ public class ClienteController {
     // View
     //--------------------------------------------------------------------------------
     @GetMapping("/view")
-    public String showClienteViewPage(Model model, @RequestParam("id") String id) {
+    public String showClienteViewPage(Model model, @RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "lang", required = false) String lang) {
+        //--------------------------------------------------------------------------------
+        // Multi lenguaje
+        //--------------------------------------------------------------------------------
+        if (lang != null) {
+            localeResolver.setLocale(request, response, new Locale(lang));
+        }
         try {
             Cliente cliente = service.getClienteById(id);
             model.addAttribute("cliente", cliente);
