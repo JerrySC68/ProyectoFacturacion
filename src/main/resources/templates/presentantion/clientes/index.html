@@ -21,6 +21,7 @@
 							<th>[[#{cliente.Id}]]</th>
 							<th>[[#{cliente.TypeId}]]</th>
 							<th>[[#{cliente.Name}]]</th>
+							<th>[[#{cliente.Telefono}]]</th>
 							<th>[[#{cliente.Email}]]</th>
 							<th>[[#{table.Action}]]</th>
 						</tr>
@@ -30,6 +31,7 @@
 							<td th:text="${cliente.id}"></td>
 							<td th:text="${cliente.typeId}"></td>
 							<td th:text="${cliente.name}"></td>
+							<td th:text="${cliente.telefono}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td>
 								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}">[[#{action.View}]]</a>
