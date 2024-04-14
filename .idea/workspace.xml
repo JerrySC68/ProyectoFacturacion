@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="CSS">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/HaciendaSTUBRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/HaciendaSTUBRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/Data/Repository/ProductoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/TipoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/TipoCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProveedorProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProveedorProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/listaFactura.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/listaFactura.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,30 +29,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "EddyVillarrealMunoz"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EddyVillarrealMunoz&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/JerrySC68/ProyectoFacturacion.git",
-    "accountId": "c213ef20-4cd2-4801-9e44-85290a63c645"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JerrySC68/ProyectoFacturacion.git&quot;,
+    &quot;accountId&quot;: &quot;c213ef20-4cd2-4801-9e44-85290a63c645&quot;
   }
-}]]></component>
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -92,7 +76,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Eddy/Desktop/ProyectoFacturacion/src/main/resources/static/styles/css",
+    "last_opened_file_path": "C:/Users/Jerry/Documents/GitHub/ProyectoFacturacion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -174,8 +158,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
       </set>
     </attachedChunks>
   </component>
@@ -208,6 +191,7 @@
       <workItem from="1712708308121" duration="61450000" />
       <workItem from="1713042290461" duration="7675000" />
       <workItem from="1713058074520" duration="5755000" />
+      <workItem from="1713070274685" duration="1127000" />
     </task>
     <task id="LOCAL-00001" summary="Creación Proyecto">
       <option name="closed" value="true" />
