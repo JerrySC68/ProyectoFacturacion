@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/head"></head>
-<body>
-<!----------------------------------------------------------------
- Header
----------------------------------------------------------------- -->
-<header th:replace="fragments/header :: header">&nbsp;</header>
-<!----------------------------------------------------------------
- Body
----------------------------------------------------------------- -->
-<form th:action="@{/signup}" method="post">
-    <label>
-        <input type="text" name="id" placeholder="ID" required>
-    </label>
-    <label>
-        <input type="text" name="name" placeholder="Name" required>
-    </label>
-    <label>
-        <input type="email" name="email" placeholder="Email" required>
-    </label>
-    <label>
-        <input type="password" name="password" placeholder="Password" required>
-    </label>
-    <label>
-        <select name="actComercial" class="large-select">
-            <option value="">No especificar</option>
-            <option th:each="actComercial : ${actComerciales}" th:value="${actComercial.id}" th:text="${actComercial.name}"></option>
-        </select>
-    </label>
-    <button type="submit">Signup</button>
-</form>
-<!----------------------------------------------------------------
- Footer
------------------------------------------------------------------->
-<footer th:replace="fragments/footer :: footer"></footer>
-</body>
+	<head th:replace="fragments/head"></head>
+	<body>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
+		<h1>[[#{signup.Title}]]</h1>
+		<div class="marco">
+			<form method="post" th:action="@{/signup}">
+				<label>[[#{admin.Id}]]
+					<input name="id" th:placeholder="#{admin.Id}" required type="text">
+				</label>
+				<br/><br/>
+				<label>[[#{admin.Name}]]
+					<input name="name" th:placeholder="#{admin.Name}" required type="text">
+				</label>
+				<br/><br/>
+				<label>[[#{admin.Email}]]
+					<input name="email" th:placeholder="#{admin.Email}" required type="email">
+				</label>
+				<br/><br/>
+				<label>[[#{admin.Password}]]
+					<input name="password" th:placeholder="#{admin.Password}" required type="password">
+				</label>
+				<br/><br/>
+				<label>
+					<select class="large-select" name="actComercial">
+						<option value="">No especificar</option>
+						<option th:each="actComercial : ${actComerciales}" th:text="${actComercial.name}"
+								  th:value="${actComercial.id}"></option>
+					</select>
+				</label>
+				<br/><br/>
+				<button type="submit">[[#{signup.Title}]]</button>
+			</form>
+		</div>
+		<!----------------------------------------------------------------
+		 Footer
+		------------------------------------------------------------------>
+		<footer th:replace="fragments/footer :: footer"></footer>
+	</body>
 </html>

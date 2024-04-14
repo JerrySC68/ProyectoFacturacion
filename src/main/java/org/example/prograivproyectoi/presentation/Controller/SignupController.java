@@ -1,5 +1,7 @@
 package org.example.prograivproyectoi.presentation.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.example.prograivproyectoi.logic.Model.ActComercial;
 import org.example.prograivproyectoi.logic.Model.Proveedor;
@@ -10,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class SignupController {
@@ -20,14 +24,25 @@ public class SignupController {
     private org.example.prograivproyectoi.logic.Service service;
 
     @Autowired
+    LocaleResolver localeResolver;
+
+    @Autowired
     public SignupController(org.example.prograivproyectoi.logic.Service service) {
         this.service = service;
     }
 
     @GetMapping("/signup")
-    public String signup(Model model) {
+    public String signup(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "lang", required = false) String lang) {
+        //--------------------------------------------------------------------------------
+        // Multi lenguaje
+        //--------------------------------------------------------------------------------
+        if (lang != null) {
+            localeResolver.setLocale(request, response, new Locale(lang));
+        }
+
         List<ActComercial> actComerciales = service.findAllActComercials();
         model.addAttribute("actComerciales", actComerciales);
+
         return "signup";
     }
 
