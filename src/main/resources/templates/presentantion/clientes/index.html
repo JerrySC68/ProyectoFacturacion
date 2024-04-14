@@ -34,9 +34,9 @@
 							<td th:text="${cliente.telefono}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td>
-								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}">[[#{action.View}]]</a>
+								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}"><img class="imagen-view" src="/images/eye.jpg" alt="view"></a>
 								<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
-									th:onclick="return confirm([[#{action.Confirm}]])">[[#{action.Delete}]]</a>
+									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete"	src="/images/X-roja.jpg" alt="delete"></a>
 							</td>
 						</tr>
 					</tbody>
