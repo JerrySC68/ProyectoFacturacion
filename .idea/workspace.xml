@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="Tipo Cliente">
+    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="View Correccion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/viewCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/viewCliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +176,7 @@
       <workItem from="1712636924272" duration="6937000" />
       <workItem from="1712661852705" duration="3666000" />
       <workItem from="1712708308121" duration="61450000" />
-      <workItem from="1713042290461" duration="8851000" />
+      <workItem from="1713042290461" duration="9963000" />
     </task>
     <task id="LOCAL-00001" summary="Creación Proyecto">
       <option name="closed" value="true" />
@@ -257,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713057867679</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="View Correccion">
+      <option name="closed" value="true" />
+      <created>1713059142078</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713059142078</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +296,7 @@
     <MESSAGE value="CSS Basico&#10;Correccion footer,header y head" />
     <MESSAGE value="CSS" />
     <MESSAGE value="Tipo Cliente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tipo Cliente" />
+    <MESSAGE value="View Correccion" />
+    <option name="LAST_COMMIT_MESSAGE" value="View Correccion" />
   </component>
 </project>

@@ -6,7 +6,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Cliente
@@ -19,6 +18,7 @@ public class Cliente
     private String id;
 
     @Enumerated(EnumType.STRING)
+    @NotEmpty(message = "{error.Empty}")
     private TipoCliente typeId;
 
     @NotEmpty(message = "{error.Empty}")
