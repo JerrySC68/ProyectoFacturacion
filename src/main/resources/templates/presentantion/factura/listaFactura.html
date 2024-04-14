@@ -5,14 +5,12 @@
     <title>Lista Facturas</title>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" th:href="@{/css/listaFactura.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/listaFactura.css}">
 <h1>Lista de Facturas</h1>
 <div class="container">
     <div class="search-container">
-        <form th:action="@{/search/factura}" method="POST">
-            <label for="codigoFactura">Buscar Factura:</label>
-            <input type="text" id="codigoFactura" name="codigoFactura" placeholder="Ingrese el código...">
-            <button type="submit">Buscar</button>
+        <form th:action="@{/presentantion/factura/FacturaMain}" method="POST">
+            <button type="submit">Crear</button>
         </form>
     </div>
     <div class="table-containerFacturas">
