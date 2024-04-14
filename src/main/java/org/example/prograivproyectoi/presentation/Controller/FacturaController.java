@@ -44,7 +44,7 @@ public class FacturaController {
         return "presentantion/factura/listaFactura";
     }
 
-    @GetMapping("/FacturaMain")
+    @GetMapping("/presentantion/factura/FacturaMain")
     public String showFacturaCreatePage(Model model, HttpServletRequest request, HttpServletResponse response,
                                          @RequestParam(name = "lang", required = false) String lang)
     {
