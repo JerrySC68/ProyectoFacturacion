@@ -22,6 +22,7 @@ header {
     width: 100%;
     padding: 20px;
     max-height: 50px;
+    overflow: hidden;
 }
 
 .logoHome{
@@ -54,7 +55,7 @@ footer {
     color: white;
     text-align: center;
     align-items: center;
-    padding: 10px;]
+    padding: 10px;
 max-height: 40px;
 }
 
@@ -108,6 +109,24 @@ table tr:hover {
 }
 
 
+a {
+    text-decoration: none;
+    background-color: #B74803;
+    color: white;
+    padding: 0.30em;
+    border-radius: 0.5em;
+    margin:3px;
+    overflow: hidden;
+}
+
+a img{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: block;
+}
 
 button{
     text-decoration: none;
