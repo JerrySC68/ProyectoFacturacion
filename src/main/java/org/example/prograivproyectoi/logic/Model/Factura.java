@@ -1,9 +1,8 @@
 package org.example.prograivproyectoi.logic.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,12 +20,17 @@ import java.util.List;
 @Table(name = "facturas")
 public class Factura {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String code;
-
+    @NotEmpty(message = "{error.Empty}")
     private Date date;
+    @NotEmpty(message = "{error.Empty}")
     private String cedulaProveedor;
+    @NotEmpty(message = "{error.Empty}")
     private String cedulaCliente;
+    @NotEmpty(message = "{error.Empty}")
     private String tipoPago;
+    @Min(value = 0, message = "{error.Negative}")
     private Double finalPrice;
 
     @OneToMany(mappedBy = "factura")

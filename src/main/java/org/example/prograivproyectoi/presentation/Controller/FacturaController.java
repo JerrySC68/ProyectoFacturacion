@@ -2,6 +2,7 @@ package org.example.prograivproyectoi.presentation.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.example.prograivproyectoi.logic.Model.Cliente;
 import org.example.prograivproyectoi.logic.Model.Factura;
@@ -28,7 +29,7 @@ public class FacturaController
     LocaleResolver localeResolver;
 
     @GetMapping({"", "/"})
-    public String showProductosList(Model model, HttpServletRequest request, HttpServletResponse response,
+    public String showFacturaList(Model model, HttpServletRequest request, HttpServletResponse response,
                                     @RequestParam(name = "lang", required = false) String lang)
     {
         //--------------------------------------------------------------------------------
@@ -66,17 +67,34 @@ public class FacturaController
     }
 
     @PostMapping("/create")
-    public String createFactura(@Valid @ModelAttribute Factura factura, BindingResult result)
-    {
-        //--------------------------------------------------------------------------------
-        // Si hay errores en el formulario, se regresa  a la pagina de creación
-        //--------------------------------------------------------------------------------
-        if (result.hasErrors()) {
-            return "presentantion/productos/createProducto";
+    public String createFactura(HttpServletRequest request) {
+        String productoId = request.getParameter("selectedProduct");
+        String clienteId = request.getParameter("selectedProduct");
+        String fecha = request.getParameter("fecha");
+        String tipoPago = request.getParameter("tipoPago");
+
+
+        System.out.println("Producto: " + productoId);
+        System.out.println("Cliente: " + clienteId);
+
+
+        try {
+            Producto producto = service.getProductoById(Integer.parseInt(productoId));
+            //Cliente cliente = service.getClienteById(clienteId);
+
+            Factura factura = new Factura();
+            //factura.setProducto(producto);
+            // factura.setCedulaCliente(clienteId);
+            // factura.setFecha(fecha);
+            // factura.setTipoPago(tipoPago);
+
+            service.addFactura(factura);
+        } catch (Exception e) {
+            request.setAttribute("error", e.getMessage());
+            return "presentantion/factura/createFactura";
         }
 
-
-        return "redirect:/presentantion/factura/listaFactura";
+        return "redirect:/presentantion/factura";
     }
     //--------------------------------------------------------------------------------
     // Otros
@@ -86,25 +104,51 @@ public class FacturaController
         this.service = service;
     }
 
-    @PostMapping("/clienteID")
-    public String obtenerIDCliente(@RequestParam("clienteID") String clienteID, Model model) {
-        Cliente cliente = service.getClienteById(clienteID);
-
-        model.addAttribute("clienteID", cliente.getId());
-        return "redirect:/";
+    @GetMapping("/searchProduct")
+    public String searchProducto(@RequestParam("id") int id, Model model) {
+        try{
+            Producto producto = service.getProductoById(id);
+            model.addAttribute("producto", producto);
+            return "presentantion/factura/createFactura";
+        }
+        catch (Exception e){
+            model.addAttribute("error", "Dato no encontrado");
+            return "presentantion/factura/createFactura";
+        }
     }
 
-    @PostMapping("/codigoProducto")
-    public String obtenerCodigoProducto(@RequestParam("codigoProducto") String codigoProducto, Model model) {
-        List<Producto> productos = service.getProductoList();
-
-        for(Producto product : productos){
-            if(product.getCode().equals(codigoProducto)){
-                model.addAttribute("codigoProducto", product.getCode());
-            }else{
-                model.addAttribute("codigoProducto","...");
-            }
+    @PostMapping("/selectProduct")
+    public String selectProduct(@RequestParam("id") int id, HttpSession session) {
+        try {
+            Producto producto = service.getProductoById(id);
+            session.setAttribute("selectedProduct", producto);
+        } catch (Exception e) {
+            // Aquí puedes manejar cualquier error que ocurra durante la selección del producto
         }
-        return "redirect:/";
+        return "redirect:/presentantion/factura/create";
+    }
+
+    @GetMapping("/searchCliente")
+    public String searchCliente(@RequestParam("id") String id, Model model) {
+        try{
+            Cliente cliente = service.getClienteById(id);
+            model.addAttribute("cliente", cliente);
+            return "presentantion/factura/createFactura";
+        }
+        catch (Exception e){
+            model.addAttribute("error", "Dato no encontrado");
+            return "presentantion/factura/createFactura";
+        }
+    }
+
+    @PostMapping("/selectCliente")
+    public String selectCliente(@RequestParam("id") String id, HttpSession session) {
+        try {
+            Cliente cliente = service.getClienteById(id);
+            session.setAttribute("selectedCliente", cliente);
+        } catch (Exception e) {
+            // Aquí puedes manejar cualquier error que ocurra durante la selección del cliente
+        }
+        return "redirect:/presentantion/factura/create";
     }
 }

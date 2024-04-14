@@ -1,105 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario Factura</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/facturaMain.css}">
-</head>
+<head th:replace="fragments/head"><title>Facturas</title></head>
 <body>
-<div class="container">
-    <!-- Title -->
-    <div class="title">
-        <h2>Creando Factura</h2>
-    </div>
+<header th:replace="fragments/header :: header">&nbsp;</header>
 
-    <div class="d-flex">
-        <!-- Form Factura -->
-        <form class="form-Factura" th:action="@{/facturaForm}" th:object="${factura}" method="POST">
-            <label>
-                <span>Fecha Emisión<span class="required">*</span></span>
-                <input type="date" name="fecha">
-            </label>
-            <label>
-                <span>Código Factura<span class="required">*</span></span>
-                <input type="text" name="code">
-            </label>
-
-            <!-- Form Cliente -->
-            <form class="form-Cliente" th:action="@{/clienteID}" th:object="${cliente}" method="POST">
-                <span>ID Cliente: <span th:text="${clienteID}"></span> </span>
-                <input type="text" name="clienteID">
-                <button type="submit" style="width: 70px">Buscar</button>
-            </form>
-
-            <!-- Form Producto -->
-            <form class="form-Producto" th:action="@{/codigoProducto}" th:object="${product}" method="POST">
-                <span>Código Producto: <span th:text="${codigoP}"></span> </span>
-                <label><input type="text" name="codigoProduct"></label>
-                <button type="submit" style="width: 70px">Buscar</button>
-            </form>
-
-            <!-- Form Cantidad -->
-            <form class="form-Cantidad" th:action="@{/cantidadProducto}" method="POST">
-                <span>Cantidad Producto:</span>
-                <input type="text" name="cantidadProducto">
-                <button type="submit" style="width: 70px">Agregar</button>
-            </form>
-
-            <!-- Table Productos -->
-            <div class="table-containerProductos">
-                <p class="letraTitulo" ><strong>Productos</strong></p>
-                <table>
-
-                    <tr>
-                        <th>Código</th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                    </tr>
-
-                    <tr th:each="product : ${products}">
-                        <td th:text="${product.code}"></td>
-                        <td th:text="${product.description}"></td>
-                        <td th:text="${product.price}"></td>
-                        <td th:text="${cantidadP}"></td>
-                       <!-- <td>
-                            <a th:href="@{/eliminaProducto(product.id)}" >
-                                <img class="logoX" src="/images/delete.png" height="20" width="20"/>
-                            </a>
-                        </td> -->
-                    </tr>
-
-                </table>
-            </div>
-        </form>
-
-        <!-- Order Summary -->
-        <div class="Yorder">
-            <table>
-                <tr>
-                    <th colspan="2">Precio Final</th>
-                </tr>
-                <tr>
-                    <td>Subtotal</td>
-                    <td>"Total..."</td>
-                </tr>
-                <tr>
-                    <td>Servicio</td>
-                    <td>Servicio Gratuito</td>
-                </tr>
-            </table><br>
-            <h2>Método de Pago</h2>
-            <div>
-                <input type="radio" name="dbt" value="cd"> Efectivo
-            </div>
-            <div>
-                <input type="radio" name="dbt" value="cd"> Tarjeta/Paypal <span>
-                    <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
-                    </span>
-            </div>
-            <button type="submit">Guardar</button>
-        </div>
-    </div>
+<!-- Sección para buscar producto -->
+<div class="search-Producto">
+    <p>Buscar Producto a agregar a la factura</p>
+    <form th:action="@{/presentantion/factura/searchProduct}" method="get">
+        <label>
+            <input type="number" name="id" placeholder="Introduce el ID del producto" required/>
+        </label>
+        <input type="submit" value="Buscar"/>
+    </form>
 </div>
+
+<!-- Sección para mostrar información del producto -->
+<div th:if="${producto}">
+    <p><strong>[[#{producto.Code}]]:</strong> <span th:text="${producto.getCode()}"></span></p>
+    <p><strong>[[#{producto.Description}]]:</strong> <span th:text="${producto.getDescription()}"></span></p>
+    <p><strong>[[#{producto.Price}]]:</strong> <span th:text="${producto.getPrice()}"></span></p>
+    <form th:action="@{/presentantion/factura/selectProduct}" method="post">
+        <input type="hidden" name="id" th:value="${producto.getId()}"/>
+        <input type="submit" value="Seleccionar Producto"/>
+    </form>
+</div>
+
+<!-- Sección para mostrar el total -->
+
+
+<!-- Sección para buscar cliente -->
+<div class="search-Cliente">
+    <p>Buscar Cliente Comprador</p>
+    <form th:action="@{/presentantion/factura/searchCliente}" method="get">
+        <label>
+            <input type="number" name="id" placeholder="Introduce la cédula del cliente" required/>
+        </label>
+        <input type="submit" value="Buscar"/>
+    </form>
+</div>
+
+<!-- Sección para mostrar información del cliente -->
+<div th:if="${cliente}">
+    <h2>Información del Cliente</h2>
+    <p><strong>[[#{cliente.Id}]]:</strong> <span th:text="${cliente.getId()}"></span></p>
+    <p><strong>[[#{cliente.Name}]]:</strong> <span th:text="${cliente.getName()}"></span></p>
+    <p><strong>[[#{cliente.Direccion}]]:</strong> <span th:text="${cliente.getDireccion()}"></span></p>
+    <p><strong>[[#{cliente.Telefono}]]:</strong> <span th:text="${cliente.getTelefono()}"></span></p>
+    <p><strong>[[#{cliente.Email}]]:</strong> <span th:text="${cliente.getEmail()}"></span></p>
+    <form th:action="@{/presentantion/factura/selectCliente}" method="post">
+        <input type="hidden" name="id" th:value="${cliente.getId()}"/>
+        <input type="submit" value="Seleccionar Cliente"/>
+    </form>
+</div>
+
+<!-- Formulario para confirmar factura -->
+<h2>Método de Pago</h2>
+<form th:action="@{/presentantion/factura/create}" method="post">
+    <input type="date" name="fecha" required/>
+    <label>
+        <input type="radio" id="efectivo" name="tipoPago" value="efectivo">
+        <label for="efectivo">Efectivo</label>
+    </label>
+    <label>
+        <input type="radio" id="tarjeta" name="tipoPago" value="tarjeta">
+        <label for="tarjeta">Tarjeta</label>
+    </label>
+    <input type="submit" value="Crear Factura"/>
+</form>
+
+<!-- Sección para mostrar errores -->
+<div th:if="${error}">               <!-- Esta sección causa conflicto con el multilenguaje-->
+    <p th:text="${error}"></p>
+</div>
+
+<!-- Footer -->
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
