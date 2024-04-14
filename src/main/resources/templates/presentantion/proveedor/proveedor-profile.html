@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <title>Proveedor Profile</title>
-    <link rel="stylesheet" href="/css/proveedor-profile.css">
-</head>
+<head th:replace="fragments/head"></head>
+
 <body>
 
 <header th:replace="fragments/header :: header">&nbsp;</header>
 
-<div class="profile-container">
+<div class="tabla-proveedor">
 
     <section class ="left-container">
-        <h2>Mi Perfil</h2>
+        <h2>[[#{proveedor.view.Title}]]</h2>
 
-        <p><strong>ID:</strong> <span th:text="${#strings.substring(proveedor.id, 10)}"></span></p>
-        <p><strong>Name:</strong> <span th:text="${proveedor.name}"></span></p>
-        <p><strong>Email:</strong> <span th:text="${proveedor.email}"></span></p>
+        <p><strong>[[#{id}]]:</strong> <span th:text="${#strings.substring(proveedor.id, 10)}"></span></p>
+        <p><strong>[[#{admin.Name}]]:</strong> <span th:text="${proveedor.name}"></span></p>
+        <p><strong>[[#{cliente.Email}]]:</strong> <span th:text="${proveedor.email}"></span></p>
 
-        <p><strong>Estado</strong>
+        <p><strong>[[#{view.Estado}]]:</strong>
             <span th:if="${proveedor.accepted}" th:text="'Ha sido aceptado como contribuyente'"></span>
             <span th:unless="${proveedor.accepted}" th:text="'No ha sido aceptado como contribuyente'"></span>
         </p>
 
-        <p><strong>Actividad Comercial:</strong>
+        <p><strong>[[#{view.Actividad.Comercial}]]:</strong>
             <span th:if="${proveedor.actComercial != null}" th:text="${proveedor.actComercial.name}"></span>
             <span th:if="${proveedor.actComercial == null}" th:text="'No registra'"></span>
         </p>
 
-        <p><strong>Clientes:</strong>
+        <p><strong>[[#{header.Clientes}]]:</strong>
             <span th:if="${proveedor.actComercial != null}" th:text="${proveedor.clientes}"></span>
             <span th:if="${proveedor.actComercial == null}" th:text="'No registra'"></span>
         </p>
     </section>
 
     <section class="right-container">
-        <h2>Editar perfil ante hacienda</h2>
+        <h2>[[#{edit.Profile.Hacienda}]]</h2>
 
         <form th:action="@{/proveedor/update}" th:object="${proveedor}" method="post">
             <label>
-                <span>Name:</span>
+                <span>[[#{admin.Name}]]:</span>
                 <input type="text" th:field="*{name}" required>
             </label>
 
             <label>
-                <span>Email:</span>
+                <span>[[#{cliente.Email}]]:</span>
                 <input type="email" th:field="*{email}" required>
             </label>
 
             <label>
-                <span>New Password:</span>
+                <span>[[#{view.New.Password}]]:</span>
                 <input type="password" name="newPassword" required>
             </label>
             <label>
-                <span>Confirm New Password:</span>
+                <span>[[#{view.Confirm.New.Password}]]:</span>
                 <input type="password" name="confirmPassword" required>
             </label>
 
             <label>
-                <span>Actividad Comercial:</span>
+                <span>[[#{view.Actividad.Comercial}]]</span>
                 <select name="actComercial" class="large-select">
                     <option th:each="actComercial: ${actComerciales}" th:value="${actComercial.id}" th:text="${actComercial.name}"></option>
                 </select>
             </label>
 
-            <button type="submit">Update</button>
+            <button type="submit">[[#{view.Update}]]</button>
         </form>
 
     </section>

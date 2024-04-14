@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:replace="fragments/head"><title>Facturas</title></head>
-<body>
-Header
+
+
 <header th:replace="fragments/header :: header">&nbsp;</header>
 
-<!-- Sección para buscar producto -->
-<div class="search-Producto">
+<div class="">
     <p>Buscar Producto a agregar a la factura</p>
     <form th:action="@{/presentantion/factura/searchProduct}" method="get">
         <label>
@@ -16,7 +15,7 @@ Header
     </form>
 </div>
 
-<!-- Sección para mostrar información del producto -->
+
 <div th:if="${producto}">
     <p><strong>[[#{producto.Code}]]:</strong> <span th:text="${producto.getCode()}"></span></p>
     <p><strong>[[#{producto.Description}]]:</strong> <span th:text="${producto.getDescription()}"></span></p>
