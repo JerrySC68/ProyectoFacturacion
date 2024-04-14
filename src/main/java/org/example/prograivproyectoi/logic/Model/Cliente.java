@@ -1,9 +1,12 @@
 package org.example.prograivproyectoi.logic.Model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Cliente
@@ -14,6 +17,9 @@ public class Cliente
     @Id
     @NotEmpty(message = "{error.Empty}")
     private String id;
+
+    @Enumerated(EnumType.STRING)
+    private TipoCliente typeId;
 
     @NotEmpty(message = "{error.Empty}")
     private String name;
@@ -34,9 +40,24 @@ public class Cliente
         this.email = email;
     }
 
+    public Cliente(String id, TipoCliente typeId, String name, String email) {
+        this.id = id;
+        this.typeId = typeId;
+        this.name = name;
+        this.email = email;
+    }
+
     //-----------------------------------------------------------------------------------------
     //Getters y Setters
     //-----------------------------------------------------------------------------------------
+
+    public TipoCliente getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(TipoCliente typeId) {
+        this.typeId = typeId;
+    }
 
     public String getId() {
         return id;

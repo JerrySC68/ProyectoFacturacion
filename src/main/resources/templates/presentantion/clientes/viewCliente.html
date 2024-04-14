@@ -14,6 +14,13 @@
 			<label>[[#{cliente.Id}]]
 				<input disabled th:field="${cliente.id}"/>
 			</label>
+			<label>[[#{cliente.TypeId}]]
+				<input th:readonly="true" th:field="${cliente.typeId}"/>
+				<ul>
+					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('typeId')}"
+						 th:text="${error}"></li>
+				</ul>
+			</label>
 			<br/><br/>
 			<label>[[#{cliente.Name}]]
 				<input disabled th:field="${cliente.name}"/>

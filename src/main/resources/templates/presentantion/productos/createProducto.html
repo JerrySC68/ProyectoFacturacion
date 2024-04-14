@@ -10,7 +10,7 @@
 		 Body
 		---------------------------------------------------------------- -->
 		<h1>[[#{producto.create.Title}]]</h1>
-		<form enctype="multipart/form-data" method="post" th:action="@{/presentantion/clientes/createCliente.html}" th:object="${producto}" class="marco">
+		<form enctype="multipart/form-data" method="post" th:object="${producto}" class="marco">
 			<div>
 				<label>[[#{producto.Type}]]
 					<select th:field="${producto.type}">

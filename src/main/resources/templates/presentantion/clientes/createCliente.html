@@ -21,6 +21,13 @@
 						<li th:if="${error}" class="error" th:text="${error}"></li>
 					</ul>
 				</label>
+				<label>[[#{cliente.TypeId}]]
+					<input th:readonly="true" th:field="${cliente.typeId}"/>
+					<ul>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('typeId')}"
+							 th:text="${error}"></li>
+					</ul>
+				</label>
 				<label>[[#{cliente.Name}]]
 					<input th:readonly="true" th:field="${cliente.name}"/>
 					<ul>

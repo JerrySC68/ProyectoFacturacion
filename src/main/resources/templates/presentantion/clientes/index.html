@@ -19,6 +19,7 @@
 					<thead>
 						<tr>
 							<th>[[#{cliente.Id}]]</th>
+							<th>[[#{cliente.TypeId}]]</th>
 							<th>[[#{cliente.Name}]]</th>
 							<th>[[#{cliente.Email}]]</th>
 							<th>[[#{table.Action}]]</th>
@@ -27,6 +28,7 @@
 					<tbody>
 						<tr th:each="cliente : ${clientes}">
 							<td th:text="${cliente.id}"></td>
+							<td th:text="${cliente.typeId}"></td>
 							<td th:text="${cliente.name}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td>
