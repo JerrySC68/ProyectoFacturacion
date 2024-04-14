@@ -216,4 +216,8 @@ public class Service {
     public void addFactura(Factura factura) {
         facturaRepository.save(factura);
     }
+
+    public Factura findFacturaById(Long id) {
+        return facturaRepository.findById(id).orElseThrow();
+    }
 }

@@ -23,7 +23,7 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull(message = "{error.Empty}")
+    @Temporal(TemporalType.DATE)
     private Date date;
     @NotEmpty(message = "{error.Empty}")
     private String cedulaProveedor;

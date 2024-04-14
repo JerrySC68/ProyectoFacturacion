@@ -15,6 +15,7 @@
             <thead>
             <tr>
                 <th>[[#{factura.date}]]</th>
+                <th>[[#{factura.id}]]</th>
                 <th>[[#{factura.cedulaProveedor}]]</th>
                 <th>[[#{factura.cedulaCliente}]]</th>
                 <th>[[#{factura.tipoPago}]]</th>
@@ -24,15 +25,15 @@
             </thead>
             <tbody>
             <tr th:each="factura : ${facturas}">
-                <td th:text="${factura.getId}"></td>
+                <td th:text="${factura.date}"></td>
+                <td th:text="${factura.id}"></td>
                 <td th:text="${factura.cedulaProveedor}"></td>
                 <td th:text="${factura.cedulaCliente}"></td>
                 <td th:text="${factura.tipoPago}"></td>
                 <td th:text="${factura.finalPrice}"></td>
                 <td>
-                    <a th:href="@{/presentantion/factura/view(id=${factura.getId()})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
-                    <a th:href="@{/presentantion/clientes/delete(id=${factura.getId()})}"
-                       th:onclick="'return confirm(\'' + #{action.Confirm} + '\')'"><img class="imagen-delete"	src="/images/delete.png" alt="delete"></a>
+                    <a th:href="@{/presentantion/factura/pdf}"><img class="imagen-view" src="/images/pdf.png" alt="view"></a>
+                    <a th:href="@{/presentantion/factura/xml}"><img class="imagen-delete"	src="/images/xml.png" alt="delete"></a>
                 </td>
             </tr>
             </tbody>

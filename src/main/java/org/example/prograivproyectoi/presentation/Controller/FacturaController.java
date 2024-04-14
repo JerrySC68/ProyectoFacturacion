@@ -1,5 +1,10 @@
 package org.example.prograivproyectoi.presentation.Controller;
 
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -10,12 +15,18 @@ import org.example.prograivproyectoi.logic.Model.Factura;
 import org.example.prograivproyectoi.logic.Model.Producto;
 import org.example.prograivproyectoi.logic.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -164,4 +175,47 @@ public class FacturaController {
         }
         return "redirect:/presentantion/factura/create";
     }
+
+    @GetMapping("/presentantion/factura/pdf")
+    public void pdf(Factura facturaID, HttpServletResponse response) throws Exception {
+        Factura factura = service.findFacturaById(facturaID.getId());
+
+        PdfWriter writer = new PdfWriter(response.getOutputStream());
+
+        PdfDocument pdf = new PdfDocument(writer);
+        Document document = new Document(pdf, PageSize.A4);
+
+        Paragraph title = new Paragraph("Factura");
+        Paragraph content = new Paragraph("Número de factura: " + factura.getId()+ "\n" +
+                "Fecha: " + factura.getDate() + "\n" +
+                "Proveedor: " + factura.getCedulaProveedor() + "\n" +
+                "Cliente: " + factura.getCedulaCliente() + "\n" +
+                "Tipo de Pago: " + factura.getTipoPago() + "\n" +
+                "Precio Final: " + factura.getFinalPrice() + "\n"
+                );
+        document.add(title);
+        document.add(content);
+        document.close();
+    }
+
+    @GetMapping("/presentation/facturar/xml")
+    public void xml(Factura facturaID, HttpServletResponse response)throws Exception{
+        Factura factura = service.findFacturaById(facturaID.getId());
+        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+        resolver.setApplicationContext(new AnnotationConfigApplicationContext());
+        resolver.setPrefix("classpath:/templates/");
+        resolver.setSuffix(".xml");
+        resolver.setCharacterEncoding("UTF-8");
+        resolver.setTemplateMode(TemplateMode.XML);
+        SpringTemplateEngine engine = new SpringTemplateEngine();
+        engine.setTemplateResolver(resolver);
+        Context ctx = new Context();
+        ctx.setVariable("factura", factura);
+        String xml = engine.process("presentation/factura/xmlView", ctx);
+        response.setContentType("application/xml");
+        PrintWriter writer = response.getWriter();
+        writer.print(xml);
+        writer.close();
+    }
+
 }
