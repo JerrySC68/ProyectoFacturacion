@@ -43,6 +43,7 @@ header {
     border-radius: 0.5em;
     transition: transform 0.3s ease;
 }
+
 .listaHeader a:hover {
     transform: scale(1.1);
 }
@@ -94,7 +95,6 @@ table {
 
 table th {
     background-color: #022e51;
-
     color: white;
     font-weight: bold;
     padding: 1em;
@@ -104,9 +104,6 @@ table td{
     padding: 0.5em;
 }
 
-table tr:hover {
-    background-color: #a3b4c8;
-}
 
 
 a {
@@ -154,8 +151,23 @@ button{
 .marco label {
     font-weight: bold;
 }
-.imagen-delete,.imagen-view{
+.imagen-edit,.imagen-delete,.imagen-view{
     background: none;
     width: 3.5rem;
     height: 3.5rem;
+}
+
+.imagen-edit,.imagen-delete:hover,.imagen-view:hover{
+    transform: scale(1.1);
+}
+.boton-create {
+    margin-bottom: 7rem;
+    font-weight: bold;
+    background-color: #B74803;
+    color: white;
+    padding: 0.50rem;
+    border-radius: 0.5em;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
