@@ -44,7 +44,7 @@ public class FacturaController {
         return "presentantion/factura/listaFactura";
     }
 
-    @GetMapping("/presentantion/factura/FacturaMain")
+    @GetMapping("/create")
     public String showFacturaCreatePage(Model model, HttpServletRequest request, HttpServletResponse response,
                                          @RequestParam(name = "lang", required = false) String lang)
     {
@@ -58,7 +58,7 @@ public class FacturaController {
         Factura factura = new Factura();
         model.addAttribute("factura", factura);
 
-        return "/presentantion/factura/FacturaMain";
+        return "/presentation/factura/createFactura";
     }
 
     @Autowired
