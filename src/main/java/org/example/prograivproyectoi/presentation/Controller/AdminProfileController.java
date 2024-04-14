@@ -36,7 +36,7 @@ public class AdminProfileController {
         model.addAttribute("proveedores", service.findAllWaitProveedores());
         model.addAttribute("aprobados", service.findAllApprovedProveedores());
 
-        return "admin-profile";
+        return "presentantion/administrador/admin-profile";
     }
 
     @GetMapping("/aceptar/{proveedorId}")

@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="/css/proveedor-profile.css">
 </head>
 <body>
-<header th:replace="~{plantillas/template :: head}">
-    <!-- Contenido del header -->
-</header >
+
+<header th:replace="fragments/header :: header">&nbsp;</header>
 
 <div class="profile-container">
 
@@ -73,8 +72,6 @@
 
 <a th:href="@{/login}">Logup</a>
 
-<footer th:replace="~{plantillas/template :: foot}">
-    <!-- Contenido del footer -->
-</footer>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

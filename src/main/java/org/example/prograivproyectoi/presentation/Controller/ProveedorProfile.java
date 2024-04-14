@@ -39,7 +39,7 @@ public class ProveedorProfile {
         Proveedor proveedor = service.findProveedorById(userId);
 
         model.addAttribute("proveedor", proveedor);
-        return "proveedor-profile";
+        return "presentantion/proveedor/proveedor-profile";
     }
 
     @PostMapping("/proveedor/update")

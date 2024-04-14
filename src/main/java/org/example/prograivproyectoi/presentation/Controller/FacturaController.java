@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Null;
 import org.example.prograivproyectoi.logic.Model.Cliente;
 import org.example.prograivproyectoi.logic.Model.Factura;
 import org.example.prograivproyectoi.logic.Model.Producto;
@@ -15,45 +16,51 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import java.util.List;
 import java.util.Locale;
 
 @Controller
 @RequestMapping("/presentantion/factura")
-public class FacturaController
-{
+public class FacturaController {
     @Autowired
     private Service service;
-
     @Autowired
     LocaleResolver localeResolver;
 
+    @Autowired
+    public FacturaController(Service service) {
+        this.service = service;
+    }
+
     @GetMapping({"", "/"})
-    public String showFacturaList(Model model, HttpServletRequest request, HttpServletResponse response,
-                                    @RequestParam(name = "lang", required = false) String lang)
-    {
+    public String showClientesList(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "lang", required = false) String lang) {
         //--------------------------------------------------------------------------------
         // Multi lenguaje
         //--------------------------------------------------------------------------------
-        if (lang != null)
-        {
+        if (lang != null) {
             localeResolver.setLocale(request, response, new Locale(lang));
         }
+
         List<Factura> facturas = service.findAllFacturas();
+        String id = null;
 
         model.addAttribute("facturas", facturas);
+        model.addAttribute("idBuscar", id);
 
-        return "presentantion/factura/listaFactura";
+        return "presentantion/factura/index";
     }
 
     //--------------------------------------------------------------------------------
-    // Crear Factura
-    //
+    //Muestra la página de creación de facturas
+    //--------------------------------------------------------------------------------
+
     @GetMapping("/create")
     public String showFacturaCreatePage(Model model, HttpServletRequest request, HttpServletResponse response,
-                                         @RequestParam(name = "lang", required = false) String lang)
+                                        @RequestParam(name = "lang", required = false) String lang)
     {
         //--------------------------------------------------------------------------------
         // Multi lenguaje
@@ -62,51 +69,51 @@ public class FacturaController
             localeResolver.setLocale(request, response, new Locale(lang));
         }
 
-        Factura factura = new Factura();
-        model.addAttribute("factura", factura);
+        Producto producto = new Producto();
+        model.addAttribute("producto", producto);
 
         return "/presentantion/factura/createFactura";
     }
 
     @PostMapping("/create")
-    public String createFactura(HttpServletRequest request) {
-        String productoId = request.getParameter("selectedProduct");
-        String clienteId = request.getParameter("selectedProduct");
-        //Date fecha = request.getParameter("fecha");
+    public String createFactura(HttpServletRequest request, HttpSession session) {
+        Producto producto = (Producto) session.getAttribute("selectedProduct");
+        Cliente cliente = (Cliente) session.getAttribute("selectedCliente");
+        String fechaString = request.getParameter("fecha");
         String tipoPago = request.getParameter("tipoPago");
 
 
-        System.out.println("Producto: " + productoId);
-        System.out.println("Cliente: " + clienteId);
-
-
+        // Convertir la fecha de String a Date
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha = null;
         try {
-            Producto producto = service.getProductoById(Integer.parseInt(productoId));
-            List<Producto> productos = new ArrayList<>();
-            productos.add(producto);
-
-            //Cliente cliente = service.getClienteById(clienteId);
-
-            Factura factura = new Factura();
-            factura.setListProducts(productos);
-            factura.setCedulaCliente(clienteId);
-            //factura.setDate(fecha);
-            factura.setTipoPago(tipoPago);
-
-            service.addFactura(factura);
-        } catch (Exception e) {
-            request.setAttribute("error", e.getMessage());
+            fecha = formatter.parse(fechaString);
+        } catch (ParseException e) {
+            request.setAttribute("error", "Formato de fecha inválido");
             return "presentantion/factura/createFactura";
         }
 
+        if (producto != null && cliente != null) {
+            try {
+                Factura factura = new Factura();
+
+                factura.setCedulaProveedor("1");
+                factura.setCedulaCliente(cliente.getId());
+                factura.setTipoPago(tipoPago);
+                factura.setFinalPrice(producto.getPrice());
+                factura.setDate(fecha);
+                factura.getListProducts().add(producto);
+
+                service.addFactura(factura);
+            } catch (Exception e) {
+                request.setAttribute("error", e.getMessage());
+                return "presentantion/factura/createFactura";
+            }
+        } else {
+            request.setAttribute("error", "Producto o cliente no seleccionado");
+            return "presentantion/factura/createFactura";
+        }
         return "redirect:/presentantion/factura";
-    }
-    //--------------------------------------------------------------------------------
-    // Otros
-    //--------------------------------------------------------------------------------
-    @Autowired
-    public FacturaController(Service service) {
-        this.service = service;
     }
 
     @GetMapping("/searchProduct")
@@ -124,6 +131,7 @@ public class FacturaController
 
     @PostMapping("/selectProduct")
     public String selectProduct(@RequestParam("id") int id, HttpSession session) {
+        System.out.println("Producto: " + id);
         try {
             Producto producto = service.getProductoById(id);
             session.setAttribute("selectedProduct", producto);

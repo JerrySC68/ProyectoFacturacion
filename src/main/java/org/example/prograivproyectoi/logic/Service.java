@@ -56,8 +56,8 @@ public class Service {
     //------------------------------------------------------------------------------------------
     // Productos
     //------------------------------------------------------------------------------------------
-    public void addProducto(Producto pproducto) {
-        productoRepository.save(pproducto);
+    public void addProducto(Producto producto) {
+        productoRepository.save(producto);
     }
 
     public List<Producto> getProductoList() {
@@ -65,7 +65,7 @@ public class Service {
     }
 
     public Producto getProductoById(int id) {
-        return productoRepository.findById(id).get();
+        return productoRepository.findById(id).orElseThrow();
     }
 
     public void deleteProducto(int id) {
@@ -214,5 +214,6 @@ public class Service {
     }
 
     public void addFactura(Factura factura) {
+        facturaRepository.save(factura);
     }
 }
