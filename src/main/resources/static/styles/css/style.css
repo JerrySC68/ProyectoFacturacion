@@ -25,14 +25,14 @@ header {
     overflow: hidden;
 }
 
-.logoHome{
+.logoHome {
     width: 20rem;
     height: 6rem;
     padding-top: 4.1rem;
     padding-bottom: 5rem;
 }
 
-.listaHeader a{
+.listaHeader a {
     flex-direction: column;
     margin: 10px 20px;
     align-items: center;
@@ -57,7 +57,7 @@ footer {
     text-align: center;
     align-items: center;
     padding: 10px;
-max-height: 40px;
+    max-height: 40px;
 }
 
 footer button {
@@ -100,11 +100,9 @@ table th {
     padding: 1em;
 }
 
-table td{
+table td {
     padding: 0.5em;
 }
-
-
 
 a {
     text-decoration: none;
@@ -112,24 +110,26 @@ a {
     color: white;
     padding: 0.30em;
     border-radius: 0.5em;
-    margin:3px;
+    margin: 3px;
     overflow: hidden;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
 }
 
-a img{
+a img {
     padding: 0px;
     margin: 0px;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 25px;
     overflow: hidden;
-    display: block;
 }
 
-button{
+button {
     text-decoration: none;
     padding: 0.30em;
     border-radius: 0.5em;
-    margin:3px;
+    margin: 3px;
 }
 
 .marco {
@@ -151,15 +151,17 @@ button{
 .marco label {
     font-weight: bold;
 }
-.imagen-edit,.imagen-delete,.imagen-view{
+
+.imagen-edit, .imagen-delete, .imagen-view {
     background: none;
     width: 3.5rem;
     height: 3.5rem;
 }
 
-.imagen-edit,.imagen-delete:hover,.imagen-view:hover{
+.imagen-edit, .imagen-delete:hover, .imagen-view:hover {
     transform: scale(1.1);
 }
+
 .boton-create {
     margin-bottom: 7rem;
     font-weight: bold;
