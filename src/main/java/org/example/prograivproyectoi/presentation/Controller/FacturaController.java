@@ -21,18 +21,11 @@ public class FacturaController {
         this.service = service;
     }
 
-    @PostMapping("/nombreCliente")
-    public String obtenerNombreCliente(@RequestParam String nombreCliente, Model model) {
-        List<Cliente> clientes = service.getClienteList();
+    @PostMapping("/clienteID")
+    public String obtenerIDCliente(@RequestParam("clienteID") String clienteID, Model model) {
+        Cliente cliente = service.getClienteById(clienteID);
 
-        for(Cliente cliente : clientes){
-            if(cliente.getName().equals(nombreCliente)){
-                model.addAttribute("nombreC", cliente.getName());
-            }else{
-                model.addAttribute("nombreC","...");
-            }
-        }
-
+        model.addAttribute("clienteID", cliente.getId());
         return "redirect:/";
     }
 
@@ -47,7 +40,6 @@ public class FacturaController {
                 model.addAttribute("codigoProducto","...");
             }
         }
-
         return "redirect:/";
     }
 }
