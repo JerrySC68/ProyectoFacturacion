@@ -1,6 +1,7 @@
 package org.example.prograivproyectoi.logic.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,9 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "proveedores") //Nombre de la tabla en la base de datos
-public class Proveedor {
+public class Proveedor
+{
+    //-----------------------------------------------------------------------------------------
+    //Atributos
+    //-----------------------------------------------------------------------------------------
     @Id
+    @NotEmpty(message = "{error.Empty}")
     @Pattern(regexp = "^Proveedor-[0-9]+$|Proveedor-[A-Z][0-9]+$")
     private String id;
     private String name;
