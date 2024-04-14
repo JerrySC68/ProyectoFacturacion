@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
-<head>
-    <meta charset="UTF-8">
-    <title>Lista Facturas</title>
-</head>
-<body>
-<link rel="stylesheet" type="text/css" th:href="@{/listaFactura.css}">
-<h1>Lista de Facturas</h1>
-<div class="container">
-    <div class="search-container">
-        <form th:action="@{/presentantion/factura/FacturaMain}" method="POST">
-            <button type="submit">Crear</button>
-        </form>
-    </div>
-    <div class="table-containerFacturas">
-        <table>
-            <tr>
-                <th>Código</th>
-                <th>Fecha</th>
-                <th>Cedula Cliente</th>
-                <th>Precio Final</th>
-            </tr>
-            <tr th:each="f: ${facturas}">
-                <td th:text="${f.getCode()}"></td>
-                <td th:text="${f.getDate()}"></td>
-                <td th:text="${f.getCedulaCliente()}"></td>
-                <td th:text="${f.getFinalPrice()}"></td>
-                <td>
-                    <button type="submit">PDF</button>
-                    <button type="submit">XML</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/head"></head>
+	<body>
+		<!----------------------------------------------------------------
+		 Header
+		---------------------------------------------------------------- -->
+		<header th:replace="fragments/header :: header">&nbsp;</header>
+		<!----------------------------------------------------------------
+		 Body
+		---------------------------------------------------------------- -->
+
+
+		<div class="table">
+			<h1>[[#{factura.Title}]]</h1>
+			<div class="create">
+				<a th:href="@{/presentantion/factura/create}">[[#{action.Create}]]</a>
+			</div>
+
+			<div>
+				<table>
+					<tr>
+						<th>Código</th>
+						<th>Fecha</th>
+						<th>Cedula Cliente</th>
+						<th>Precio Final</th>
+					</tr>
+					<tr th:each="f: ${facturas}">
+						<td th:text="${f.getCode()}"></td>
+						<td th:text="${f.getDate()}"></td>
+						<td th:text="${f.getCedulaCliente()}"></td>
+						<td th:text="${f.getFinalPrice()}"></td>
+						<td>
+							<button type="submit">PDF</button>
+							<button type="submit">XML</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
 </html>
