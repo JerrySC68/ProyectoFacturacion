@@ -15,18 +15,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "clientes")
-public class Cliente {
+public class Cliente
+{
+    //-----------------------------------------------------------------------------------------
+    //Atributos
+    //-----------------------------------------------------------------------------------------
     @Id
+    @NotEmpty(message = "{error.Empty}")
     @Pattern(regexp = "^[0-9]+$|^[A-Z][0-9]+$")
     private String id;
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "{error.Empty}")
+    private TipoCliente typeId;
+    @NotEmpty(message = "{error.Empty}")
     private String name;
-    private String lastname;
-    private String cedula;
+    @NotEmpty(message = "{error.Empty}")
     private String direccion;
+    @NotEmpty(message = "{error.Empty}")
     private String telefono;
+    @NotEmpty(message = "{error.Empty}")
+    @Email(message = "{error.Email}")
     private String email;
 
+    //-----------------------------------------------------------------------------------------
+    //Relaciones
+    //-----------------------------------------------------------------------------------------
     @ManyToOne
     @JoinColumn(name = "proveedor_id")
     private Proveedor proveedor;
