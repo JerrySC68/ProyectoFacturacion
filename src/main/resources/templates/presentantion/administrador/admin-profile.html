@@ -1,69 +1,69 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Perfil Administrador</title>
-    <link rel= "stylesheet" th:href="@{/css/admin-profile.css}">
-</head>
+<head th:replace="fragments/head"></head>
 <body>
+<header th:replace="fragments/header :: header">&nbsp;</header>
 
-<header th:replace="~{plantillas/template :: head}">
-    <!-- Contenido del header -->
-</header >
 
-<div class = "containers">
-    <div class="table-containers-left">
-        <table>
+<div class="tabla-administrador">
+    <h1>[[#{view.title.Admin}]]</h1>
+    <div>
+        <div class="create">
+            <a class="boton-create" th:href="@{/login}">[[#{header.SingOut}]]</a>
+        </div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>Actividad Comercial</th>
+                    <th>Aprobar</th>
+                    <th>Rechazar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="solicitud: ${proveedores}">
+                    <td>
+                        <p><strong>ID:</strong> <span th:text="${#strings.substring(solicitud.id, 10)}"></span></p>
+                    </td>
 
-            <tr>
-                <th>Cédula</th>
-                <th>Nombre</th>
-                <th>E-mail</th>
-                <th>Actividad Comercial</th>
-                <th>Aprobar</th>
-                <th>Rechazar</th>
-            </tr>
+                    <td>
+                        <span th:text="${solicitud.getName()}"></span><br>
+                    </td>
 
-            <tr th:each="solicitud: ${proveedores}">
-                <td>
-                    <p><strong>ID:</strong> <span th:text="${#strings.substring(solicitud.id, 10)}"></span></p>
-                </td>
+                    <td>
+                        <span th:text="${solicitud.getEmail()}"></span><br>
+                    </td>
 
-                <td>
-                    <span th:text="${solicitud.getName()}"></span><br>
-                </td>
+                    <td>
+                        <span th:if="${solicitud.getActComercial() != null}"
+                              th:text="${solicitud.getActComercial().getName()}"></span>
+                        <span th:unless="${solicitud.getActComercial() != null}">No especificado</span>
+                    </td>
 
-                <td>
-                    <span th:text="${solicitud.getEmail()}"></span><br>
-                </td>
+                    <td>
+                        <a th:href="@{'/aceptar/' + ${solicitud.getId()}}">
+                            <img alt="Add" class="imagen-approve" height="20" src="/images/approve.png" width="20">
+                        </a>
+                    </td>
 
-                <td>
-                    <span th:if="${solicitud.getActComercial() != null}" th:text="${solicitud.getActComercial().getName()}"></span>
-                    <span th:unless="${solicitud.getActComercial() != null}">No especificado</span>
-                </td>
+                    <td>
+                        <a th:href="@{'/rechazar/' + ${solicitud.getId()}}">
+                            <img alt="Remove" class="imagen-delete" height="20" src="/images/delete.png" width="20">
+                        </a>
+                    </td>
 
-                <td>
-                    <a th:href="@{'/aceptar/' + ${solicitud.getId()}}">
-                        <img src="/images/accept.png" alt="Add" width="20" height="20">
-                    </a>
-                </td>
-
-                <td>
-                    <a th:href="@{'/rechazar/' + ${solicitud.getId()}}">
-                        <img src="/images/reject.png" alt="Remove" width="20" height="20">
-                    </a>
-                </td>
-
-            </tr>
-        </table>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="table-container-right">
+    <div class="tabla-aprovados">
+        <h1>[[#{view.Disable}]]</h1>
         <table>
-
             <tr>
                 <th>Cédula</th>
                 <th>Nombre</th>
@@ -86,13 +86,14 @@
                 </td>
 
                 <td>
-                    <span th:if="${solicitudAceptada.getActComercial() != null}" th:text="${solicitudAceptada.getActComercial().getName()}"></span>
+                    <span th:if="${solicitudAceptada.getActComercial() != null}"
+                          th:text="${solicitudAceptada.getActComercial().getName()}"></span>
                     <span th:unless="${solicitudAceptada.getActComercial() != null}">No especificado</span>
                 </td>
 
                 <td>
                     <a th:href="@{'/desactivar/' + ${solicitudAceptada.getId()}}">
-                        <img src="/images/reject.png" alt="Remove" width="20" height="20">
+                        <img class="imagen-delete"  alt="Remove"  src="/images/delete.png" >
                     </a>
                 </td>
 
@@ -101,12 +102,9 @@
     </div>
 </div>
 
-<a th:href="@{/login}">Logup</a>
 
-<footer th:replace="~{plantillas/template :: foot}">
-    <!-- Contenido del footer -->
 </footer>
 
-
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

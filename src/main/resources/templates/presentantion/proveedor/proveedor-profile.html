@@ -6,9 +6,9 @@
 
 <header th:replace="fragments/header :: header">&nbsp;</header>
 
-<div class="tabla-proveedor">
+<div >
 
-    <section class ="left-container">
+    <section class ="marco">
         <h2>[[#{proveedor.view.Title}]]</h2>
 
         <p><strong>[[#{id}]]:</strong> <span th:text="${#strings.substring(proveedor.id, 10)}"></span></p>
@@ -31,44 +31,47 @@
         </p>
     </section>
 
-    <section class="right-container">
+    <section class="marco-edit" >
         <h2>[[#{edit.Profile.Hacienda}]]</h2>
 
-        <form th:action="@{/proveedor/update}" th:object="${proveedor}" method="post">
+        <form  th:action="@{/proveedor/update}" th:object="${proveedor}" method="post">
             <label>
                 <span>[[#{admin.Name}]]:</span>
                 <input type="text" th:field="*{name}" required>
-            </label>
 
+            </label>
+            <br></br>
             <label>
                 <span>[[#{cliente.Email}]]:</span>
                 <input type="email" th:field="*{email}" required>
             </label>
-
+            <br> </br>
             <label>
                 <span>[[#{view.New.Password}]]:</span>
                 <input type="password" name="newPassword" required>
             </label>
+            <br> </br>
             <label>
                 <span>[[#{view.Confirm.New.Password}]]:</span>
                 <input type="password" name="confirmPassword" required>
             </label>
-
+            <br> </br>
             <label>
                 <span>[[#{view.Actividad.Comercial}]]</span>
                 <select name="actComercial" class="large-select">
                     <option th:each="actComercial: ${actComerciales}" th:value="${actComercial.id}" th:text="${actComercial.name}"></option>
                 </select>
             </label>
-
-            <button type="submit">[[#{view.Update}]]</button>
+            <br> </br>
+            <button class="boton-create" type="submit">[[#{view.Update}]]</button>
+            <a class="boton-create" th:href="@{/login}">[[#{header.SingOut}]]</a>
         </form>
 
     </section>
 
 </div>
 
-<a th:href="@{/login}">Logup</a>
+
 
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>

@@ -2,20 +2,16 @@
 <html lang="en">
 	<head th:replace="fragments/head"></head>
 	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
+
 		<header th:replace="fragments/header :: header"></header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
+
 		<h1>[[#{login.Title}]]</h1>
 		<div class="marco">
 			<form method="post" th:action="@{/login}">
 				<label>[[#{admin.TypeId}]]
 					<select name="userType">
-						<option value="Admin-">Admin-</option>
-						<option value="Proveedor-">Proveedor-</option>
+						<option value="Admin-">Admin</option>
+						<option value="Proveedor-">Proveedor</option>
 					</select>
 				</label>
 				<br/><br/>
@@ -27,13 +23,10 @@
 					<input name="password" th:placeholder="#{admin.Password}" required type="password">
 				</label>
 				<br/><br/>
-				<button class="boton-create"	type="submit">[[#{login.Login}]]</button>
+				<button class="boton-create" type="submit">[[#{login.Login}]]</button>
 				<a class="boton-create"	href="/signup">[[#{login.SignUp}]]</a>
 			</form>
 		</div>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
 		<footer th:replace="fragments/footer :: footer"></footer>
 	</body>
 </html>

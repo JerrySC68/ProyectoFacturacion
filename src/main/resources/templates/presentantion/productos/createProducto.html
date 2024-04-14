@@ -11,7 +11,7 @@
 		---------------------------------------------------------------- -->
 		<h1>[[#{producto.create.Title}]]</h1>
 		<form enctype="multipart/form-data" method="post" th:object="${producto}" class="marco">
-			<div>
+			<div class="cajas">
 				<label>[[#{producto.Type}]]
 					<select th:field="${producto.type}">
 						<option value="1">[[#{producto.type.Product}]]</option>

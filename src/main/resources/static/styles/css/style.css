@@ -28,14 +28,14 @@ header {
     overflow: hidden;
 }
 
-.logoHome{
+.logoHome {
     width: 20rem;
     height: 6rem;
     padding-top: 4.1rem;
     padding-bottom: 5rem;
 }
 
-.listaHeader a{
+.listaHeader a {
     flex-direction: column;
     margin: 10px 20px;
     align-items: center;
@@ -59,7 +59,7 @@ footer {
     color: white;
     text-align: center;
     align-items: center;
-max-height: 40px;
+    max-height: 40px;
     padding-bottom: 3rem;
     font-weight: bold;
 }
@@ -86,76 +86,81 @@ footer button {
     margin-bottom: 10px;
 }
 
-.tabla-productos, .tabla-Cliente, .tabla-Factura {
+.tabla-productos, .tabla-Cliente, .tabla-Factura, .tabla-administrador, .tabla-aprovados {
     margin: auto;
     width: 90%;
     font-weight: bold;
 }
 
-.tabla-productos table,.tabla-Cliente table, .tabla-Factura table {
+.tabla-productos table, .tabla-Cliente table, .tabla-Factura table ,.tabla-administrador table, .tabla-aprovados table {
     margin: auto;
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-.tabla-productos table th,.tabla-Cliente table th, .tabla-Factura table th{
+
+.tabla-productos table th, .tabla-Cliente table th, .tabla-Factura table th, .tabla-administrador table th, .tabla-aprovados table th {
     background-color: #022e51;
     color: white;
     font-weight: bold;
     padding: 1em;
 }
 
-.tabla-productos table td,.tabla-Cliente table td, .tabla-Factura table td {
+.tabla-productos table td, .tabla-Cliente table td, .tabla-Factura table td, .tabla-administrador table td, .tabla-aprovados table td {
     padding: 0.5em;
 }
 
-button{
+button {
     text-decoration: none;
     padding: 0.30em;
     border-radius: 0.5em;
-    margin:3px;
+    margin: 3px;
 }
 
-.marco {
+.marco, .marco-edit {
     display: inline-block;
     border-radius: 1rem;
     background-color: #A3B4C8;
-    justify-content: center;
-    text-align:left;
+    justify-content: space-between;
+    text-align: left;
     align-items: center;
-    padding: 2.5rem;
-    gap: 0.5rem;
-
-    margin-bottom: 50rem;
+    padding: 2rem;
+    width: 40rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 5rem;
+    margin-left: 5rem;
 }
 
-.marco input, .marco select {
+.marco input, .marco select, .marco-edit input, .marco-edit select{
     width: 50%;
     background-color: #f0f0f0;
-
-
     border: 1px solid #888;
-
-
     padding: 10px;
-
-
     margin: 5px;
-
-
     border-radius: 5px;
-
-
     font-family: "Rubik", sans-serif, Arial;
+    flex: 1;
 
 }
 
-.marco label {
+.marco option, .marco-edit option {
+    background-color: #f0f0f0;
+    border: 1px solid #888;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-family: "Rubik", sans-serif, Arial;
+}
+
+.marco label, .marco-edit label {
     font-weight: bold;
 }
 
-.imagenes-select{
+
+
+.imagenes-select {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,15 +168,17 @@ button{
     gap: 1rem;
     margin: 1rem;
 }
-.imagen-edit,.imagen-delete,.imagen-view{
+
+.imagen-edit, .imagen-delete, .imagen-view,.imagen-approve {
     background: none;
     width: 30px;
     height: 30px;
 }
 
-.imagen-edit,.imagen-delete:hover,.imagen-view:hover{
+.imagen-edit, .imagen-delete:hover, .imagen-view:hover {
     transform: scale(1.1);
 }
+
 .boton-create {
     font-weight: bold;
     background-color: #B74803;
