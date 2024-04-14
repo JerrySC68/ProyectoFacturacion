@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perfil Administrador</title>
+    <link rel= "stylesheet" th:href="@{/css/admin-profile.css}">
+</head>
+<body>
+
+<header th:replace="~{plantillas/template :: head}">
+    <!-- Contenido del header -->
+</header >
+
+<div class = "containers">
+    <div class="table-containers-left">
+        <table>
+
+            <tr>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>E-mail</th>
+                <th>Actividad Comercial</th>
+                <th>Aprobar</th>
+                <th>Rechazar</th>
+            </tr>
+
+            <tr th:each="solicitud: ${proveedores}">
+                <td>
+                    <p><strong>ID:</strong> <span th:text="${#strings.substring(solicitud.id, 10)}"></span></p>
+                </td>
+
+                <td>
+                    <span th:text="${solicitud.getName()}"></span><br>
+                </td>
+
+                <td>
+                    <span th:text="${solicitud.getEmail()}"></span><br>
+                </td>
+
+                <td>
+                    <span th:if="${solicitud.getActComercial() != null}" th:text="${solicitud.getActComercial().getName()}"></span>
+                    <span th:unless="${solicitud.getActComercial() != null}">No especificado</span>
+                </td>
+
+                <td>
+                    <a th:href="@{'/aceptar/' + ${solicitud.getId()}}">
+                        <img src="/images/accept.png" alt="Add" width="20" height="20">
+                    </a>
+                </td>
+
+                <td>
+                    <a th:href="@{'/rechazar/' + ${solicitud.getId()}}">
+                        <img src="/images/reject.png" alt="Remove" width="20" height="20">
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="table-container-right">
+        <table>
+
+            <tr>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>E-mail</th>
+                <th>Actividad Comercial</th>
+                <th>Desactivar</th>
+            </tr>
+
+            <tr th:each="solicitudAceptada: ${aprobados}">
+                <td>
+                    <p><strong>ID:</strong> <span th:text="${#strings.substring(solicitudAceptada.id, 10)}"></span></p>
+                </td>
+
+                <td>
+                    <span th:text="${solicitudAceptada.getName()}"></span><br>
+                </td>
+
+                <td>
+                    <span th:text="${solicitudAceptada.getEmail()}"></span><br>
+                </td>
+
+                <td>
+                    <span th:if="${solicitudAceptada.getActComercial() != null}" th:text="${solicitudAceptada.getActComercial().getName()}"></span>
+                    <span th:unless="${solicitudAceptada.getActComercial() != null}">No especificado</span>
+                </td>
+
+                <td>
+                    <a th:href="@{'/desactivar/' + ${solicitudAceptada.getId()}}">
+                        <img src="/images/reject.png" alt="Remove" width="20" height="20">
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+<a th:href="@{/login}">Logup</a>
+
+<footer th:replace="~{plantillas/template :: foot}">
+    <!-- Contenido del footer -->
+</footer>
+
+
+</body>
+</html>

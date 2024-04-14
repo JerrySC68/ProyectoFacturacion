@@ -24,10 +24,10 @@ public class HaciendaSTUBRepository {
         clientes = new ArrayList<Cliente>();
         Cliente pcliente;
 
-        clientes.add(new Cliente("117010976", TipoCliente.FISICO, "Alonso", "alonso@gmail.com"));
+        /*clientes.add(new Cliente("117010976", TipoCliente.FISICO, "Alonso", "alonso@gmail.com"));
         clientes.add(new Cliente("117010975",  TipoCliente.FISICO, "Rodrigo", "rodrigo@gmail.com"));
         clientes.add(new Cliente("3102088049",TipoCliente.JURIDICO, "Suplidora Electromecanica", "heredia@gdiez.com"));
-        System.out.println("Hacienda num elements: " + clientes.size());
+        System.out.println("Hacienda num elements: " + clientes.size());*/
     }
 
     //------------------------------------------------------------------------------------------

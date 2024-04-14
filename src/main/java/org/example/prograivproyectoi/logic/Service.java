@@ -1,13 +1,11 @@
 package org.example.prograivproyectoi.logic;
 
-import org.example.prograivproyectoi.Data.Repository.ClienteRepository;
-import org.example.prograivproyectoi.Data.Repository.HaciendaSTUBRepository;
-import org.example.prograivproyectoi.Data.Repository.ProductoRepository;
-import org.example.prograivproyectoi.logic.Model.Cliente;
-import org.example.prograivproyectoi.logic.Model.Producto;
+import org.example.prograivproyectoi.Data.Repository.*;
+import org.example.prograivproyectoi.logic.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Service("Service")
 public class Service {
@@ -20,7 +18,6 @@ public class Service {
         if (theInstance == null) {
             theInstance = new Service();
         }
-
         return theInstance;
     }
 
@@ -32,6 +29,18 @@ public class Service {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ActComercialRepository actComercialRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
+
+    @Autowired
+    private FacturaRepository facturaRepository;
+
+    @Autowired
+    private ProveedorRepository proveedorRepository;
 
     private final HaciendaSTUBRepository haciendaSTUBRepository;
 
@@ -102,5 +111,105 @@ public class Service {
             System.out.println("Error: " + e.getMessage());
             return null;
         }
+    }
+
+    //------------------------------------------------------------------------------------------
+    // Actividad Comercial
+    //------------------------------------------------------------------------------------------
+
+    public List<ActComercial> findAllActComercials() {
+        return actComercialRepository.findAll();
+    }
+
+    public ActComercial findActComercialById(String id) {
+        return actComercialRepository.findById(id).orElseThrow();
+    }
+
+    //------------------------------------------------------------------------------------------
+    // Admin
+    //------------------------------------------------------------------------------------------
+
+    public List<Admin> findAllAdmins() {
+        return adminRepository.findAll();
+    }
+
+    public Admin createAdmin(Admin admin) {
+        return adminRepository.save(admin);
+    }
+
+    public Admin findAdminById(String id) {
+        return adminRepository.findById(id).orElseThrow();
+    }
+
+    public void updateAdmin(Admin admin) {
+        adminRepository.save(admin);
+    }
+
+    public void deleteAdmin(String id) {
+        adminRepository.deleteById(id);
+    }
+
+    public boolean validateAdmin(String id, String password) {
+        Admin admin = adminRepository.findById(id).orElse(null);
+        if (admin != null) {
+            return admin.getPassword().equals(password);
+        }
+        return false;
+    }
+
+    //------------------------------------------------------------------------------------------
+    // Proveedor
+    //------------------------------------------------------------------------------------------
+
+    public List<Proveedor> findAllProveedores() {
+        return proveedorRepository.findAll();
+    }
+
+    public List<Proveedor> findAllWaitProveedores() {
+        return findAllProveedores().stream()
+                .filter(proveedor -> !proveedor.getAccepted())
+                .collect(Collectors.toList());
+    }
+
+    public List<Proveedor> findAllApprovedProveedores() {
+        return findAllProveedores().stream()
+                .filter(Proveedor::getAccepted)
+                .collect(Collectors.toList());
+    }
+
+    public Proveedor createProveedor(Proveedor proveedor) {
+        return proveedorRepository.save(proveedor);
+    }
+
+    public Proveedor findProveedorById(String id) {
+        return proveedorRepository.findById(id).orElseThrow();
+    }
+
+    public void updateProveedor(Proveedor proveedor) {
+        proveedorRepository.save(proveedor);
+    }
+
+    public void deleteProveedor(String id) {
+        proveedorRepository.deleteById(id);
+    }
+
+    public boolean validateProveedor(String id, String password) {
+        Proveedor proveedor = proveedorRepository.findById(id).orElse(null);
+        if (proveedor != null) {
+            return proveedor.getPassword().equals(password);
+        }
+        return false;
+    }
+
+    public boolean validateDuplicates(String id) {
+        return proveedorRepository.findById(id).isPresent();
+    }
+
+    //------------------------------------------------------------------------------------------
+    // Factura
+    //------------------------------------------------------------------------------------------
+
+    public List<Factura> findAllFacturas() {
+        return facturaRepository.findAll();
     }
 }

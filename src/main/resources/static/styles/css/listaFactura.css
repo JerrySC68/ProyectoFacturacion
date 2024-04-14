@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 75%;
+    margin: auto;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-containerFacturas {
+    overflow-y: auto;
+    max-height: 400px; /* Ajusta la altura máxima según lo necesites */
+}
+
+.table-containerFacturas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-containerFacturas th, .table-containerFacturas td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-containerFacturas th {
+    background-color: #f2f2f2;
+}
+

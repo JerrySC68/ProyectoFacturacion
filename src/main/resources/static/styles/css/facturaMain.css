@@ -1,0 +1,150 @@
+body {
+    color: #262626;
+    margin: 5% 0;
+}
+
+.container {
+    width: 70%;
+    height: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: row;
+    background: #f6f6f6;
+    border-radius: 0 0 5px 5px;
+    padding: 25px;
+}
+
+form {
+    flex: 4;
+}
+
+.form-Cliente, .form-Producto{
+    margin: 15px;
+}
+
+.form-Cliente>span {
+    float: left;
+    width: 25%;
+    margin-top: 12px;
+    padding-right: 10px;
+}
+
+.form-Producto>span {
+    float: left;
+    width: 25%;
+    margin-top: 12px;
+    padding-right: 10px;
+}
+
+.Yorder {
+    flex: 2;
+    height: 600px;
+    padding: 20px;
+    border: 1px solid #dadada;
+}
+
+.title {
+    background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+    border-radius: 5px 5px 0 0;
+    padding: 20px;
+    color: #f6f6f6;
+}
+
+h2 {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.required {
+    color: red;
+}
+
+label,
+table {
+    display: block;
+    margin: 15px;
+}
+
+label>span {
+    float: left;
+    width: 25%;
+    margin-top: 12px;
+    padding-right: 10px;
+}
+
+input[type="text"] {
+    width: 70%;
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dadada;
+    color: #888;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+}
+
+th {
+    border-bottom: 1px solid #dadada;
+    padding: 10px 0;
+}
+
+tr>td:nth-child(1) {
+    text-align: left;
+    color: #2d2d2a;
+}
+
+tr>td:nth-child(2) {
+    text-align: right;
+    color: #52ad9c;
+}
+
+td {
+    border-bottom: 1px solid #dadada;
+    padding: 25px 25px 25px 0;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #52ad9c;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #428a7d;
+}
+
+.table-containerProductos {
+    overflow-y: auto;
+    max-height: 400px; /* Ajusta la altura máxima según lo necesites */
+    float: left; /* Alinea el contenedor a la izquierda */
+    max-width: 600px; /* Establece el ancho deseado */
+}
+
+.table-containerProductos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-containerProductos th, .table-containerProductos td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-containerProductos th {
+    background-color: #f2f2f2;
+}

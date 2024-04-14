@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Facturas</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" th:href="@{/css/listaFactura.css}">
+<h1>Lista de Facturas</h1>
+<div class="container">
+    <div class="search-container">
+        <form th:action="@{/search/factura}" method="POST">
+            <label for="codigoFactura">Buscar Factura:</label>
+            <input type="text" id="codigoFactura" name="codigoFactura" placeholder="Ingrese el código...">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+    <div class="table-containerFacturas">
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Cedula Cliente</th>
+                <th>Precio Final</th>
+            </tr>
+            <tr th:each="f: ${facturas}">
+                <td th:text="${f.getCode()}"></td>
+                <td th:text="${f.getDate()}"></td>
+                <td th:text="${f.getCedulaCliente()}"></td>
+                <td th:text="${f.getFinalPrice()}"></td>
+                <td>
+                    <button type="submit">PDF</button>
+                    <button type="submit">XML</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
