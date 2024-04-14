@@ -22,7 +22,7 @@ import java.util.List;
 public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String code;
+    private Long id;
     @NotNull(message = "{error.Empty}")
     private Date date;
     @NotEmpty(message = "{error.Empty}")
