@@ -212,4 +212,7 @@ public class Service {
     public List<Factura> findAllFacturas() {
         return facturaRepository.findAll();
     }
+
+    public void addFactura(Factura factura) {
+    }
 }

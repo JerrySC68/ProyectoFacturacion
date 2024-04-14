@@ -165,8 +165,8 @@ button{
 }
 .imagen-edit,.imagen-delete,.imagen-view{
     background: none;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 30px;
+    height: 30px;
 }
 
 .imagen-edit,.imagen-delete:hover,.imagen-view:hover{
