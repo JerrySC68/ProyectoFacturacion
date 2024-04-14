@@ -3,6 +3,7 @@ package org.example.prograivproyectoi.logic.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String code;
-    @NotEmpty(message = "{error.Empty}")
+    @NotNull(message = "{error.Empty}")
     private Date date;
     @NotEmpty(message = "{error.Empty}")
     private String cedulaProveedor;
