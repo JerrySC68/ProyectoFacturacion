@@ -15,6 +15,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -70,7 +72,7 @@ public class FacturaController
     public String createFactura(HttpServletRequest request) {
         String productoId = request.getParameter("selectedProduct");
         String clienteId = request.getParameter("selectedProduct");
-        String fecha = request.getParameter("fecha");
+        //Date fecha = request.getParameter("fecha");
         String tipoPago = request.getParameter("tipoPago");
 
 
@@ -80,13 +82,16 @@ public class FacturaController
 
         try {
             Producto producto = service.getProductoById(Integer.parseInt(productoId));
+            List<Producto> productos = new ArrayList<>();
+            productos.add(producto);
+
             //Cliente cliente = service.getClienteById(clienteId);
 
             Factura factura = new Factura();
-            //factura.setProducto(producto);
-            // factura.setCedulaCliente(clienteId);
-            // factura.setFecha(fecha);
-            // factura.setTipoPago(tipoPago);
+            factura.setListProducts(productos);
+            factura.setCedulaCliente(clienteId);
+            //factura.setDate(fecha);
+            factura.setTipoPago(tipoPago);
 
             service.addFactura(factura);
         } catch (Exception e) {
