@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="CSS">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/listaFactura.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/listaFactura.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +187,7 @@
       <workItem from="1712708308121" duration="61450000" />
       <workItem from="1713042290461" duration="7675000" />
       <workItem from="1713058074520" duration="5755000" />
-      <workItem from="1713070274685" duration="1127000" />
+      <workItem from="1713070274685" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="Creación Proyecto">
       <option name="closed" value="true" />
