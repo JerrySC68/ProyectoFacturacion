@@ -1,16 +1,24 @@
-html, body {
-    margin: 0;
-    padding: 0;
+:root{
+    --color1: #022e51;
+    --color2: #B74803;
+    --color3: #A3B4C8;
+    --color4: #DEF9F3;
+    --color5: #ffffff;
+}
+html {
     font-family: "Rubik", sans-serif, Arial;
-
+    background: radial-gradient(var(--color5), var(--color3));
 }
 
+
+
 body {
+    margin: 0;
+    padding: 0;
     justify-content: center;
     text-align: center;
     align-items: center;
     min-height: 100vh; /* Asegura que el cuerpo del documento tenga al menos la altura de la ventana del navegador */
-    padding-bottom: 50px;
 }
 
 header {
@@ -26,6 +34,7 @@ header {
     padding: 20px;
     max-height: 50px;
     overflow: hidden;
+
 }
 
 .logoHome {
@@ -35,7 +44,7 @@ header {
     padding-bottom: 5rem;
 }
 
-.listaHeader a {
+.listaHeader a{
     flex-direction: column;
     margin: 10px 20px;
     align-items: center;
@@ -45,6 +54,7 @@ header {
     padding: 0.75em;
     border-radius: 0.5em;
     transition: transform 0.3s ease;
+    flex-wrap: wrap;
 }
 
 .listaHeader a:hover {
@@ -55,7 +65,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #022e51;
+    background-color: var(--color1);
     color: white;
     text-align: center;
     align-items: center;
@@ -65,7 +75,7 @@ footer {
 }
 
 footer button {
-    background-color: #B74803;
+    background-color: var(--color2);
     color: white;
     width: 10%;
     height: 10%;
@@ -73,6 +83,9 @@ footer button {
     border-radius: 0.5em;
     border: none;
     font-weight: bold;
+}
+ footer button:hover {
+    cursor: pointer;
 }
 
 .error {
@@ -108,6 +121,7 @@ footer button {
 }
 
 .tabla-productos table td, .tabla-Cliente table td, .tabla-Factura table td, .tabla-administrador table td, .tabla-aprovados table td {
+    background-color:var(--color5);
     padding: 0.5em;
 }
 
@@ -188,5 +202,8 @@ button {
     border: none;
     text-decoration: none;
     transition: background-color 0.3s ease;
+}
+.boton-create:hover {
+    cursor: pointer;
 }
 
