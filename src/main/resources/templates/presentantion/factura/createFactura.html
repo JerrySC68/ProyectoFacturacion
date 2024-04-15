@@ -2,19 +2,21 @@
 <html lang="en">
 <head th:replace="fragments/head"><title>Facturas</title></head>
 
-
+<body>
 <header th:replace="fragments/header :: header">&nbsp;</header>
+<h1>[[#{factura.Title}]]</h1>
+<section class="marco-producto" >
 
-<div class="">
-    <p>Buscar Producto a agregar a la factura</p>
+<div >
+    <p>[[#{search.Product}]]</p>
     <form th:action="@{/presentantion/factura/searchProduct}" method="get">
         <label>
-            <input type="number" name="id" placeholder="Introduce el ID del producto" required/>
+            <input type="number" name="id" th:placeholder="#{view.Id.Product}" required/>
         </label>
-        <input type="submit" value="Buscar"/>
+        <input  type="submit" th:value="#{action.Search}"/>
     </form>
-</div>
 
+</div>
 
 <div th:if="${producto}">
     <p><strong>[[#{producto.Code}]]:</strong> <span th:text="${producto.getCode()}"></span></p>
@@ -22,59 +24,55 @@
     <p><strong>[[#{producto.Price}]]:</strong> <span th:text="${producto.getPrice()}"></span></p>
     <form th:action="@{/presentantion/factura/selectProduct}" method="post">
         <input type="hidden" name="id" th:value="${producto.getId()}"/>
-        <input type="submit" value="Seleccionar Producto"/>
+        <input type="submit" th:value="#{select.Product}"/>
     </form>
 </div>
 
-<!-- Sección para mostrar el total -->
 
 
-<!-- Sección para buscar cliente -->
-<div class="search-Cliente">
-    <p>Buscar Cliente al cual agregarle producto</p>
+<div>
+    <p>[[#{search.Client}]]</p>
     <form th:action="@{/presentantion/factura/searchCliente}" method="get">
         <label>
-            <input type="number" name="id" placeholder="Introduce la cédula del cliente" required/>
+            <input type="number" name="id" th:placeholder="#{introduce.Id.Client}" required/>
         </label>
-        <input type="submit" value="Buscar"/>
+        <input type="submit" th:value="#{action.Search}"/>
     </form>
 </div>
 
-<!-- Sección para mostrar información del cliente -->
-<div th:if="${cliente}">
-    <h2>Información del Cliente</h2>
+    <div th:if="${cliente}">
+    <h2> [[#{information.Client}]]</h2>
     <p><strong>[[#{cliente.Id}]]:</strong> <span th:text="${cliente.getId()}"></span></p>
     <p><strong>[[#{cliente.Name}]]:</strong> <span th:text="${cliente.getName()}"></span></p>
     <p><strong>[[#{cliente.Direccion}]]:</strong> <span th:text="${cliente.getDireccion()}"></span></p>
     <p><strong>[[#{cliente.Telefono}]]:</strong> <span th:text="${cliente.getTelefono()}"></span></p>
     <p><strong>[[#{cliente.Email}]]:</strong> <span th:text="${cliente.getEmail()}"></span></p>
     <form th:action="@{/presentantion/factura/selectCliente}" method="post">
-        <input type="hidden" name="id" th:value="${cliente.getId()}"/>
-        <input type="submit" value="Seleccionar Cliente"/>
+        <input type="text" name="id" th:value="${cliente.getId()}"/>
+        <input type="submit" th:value="#{select.Client}"/>
     </form>
 </div>
 
-<!-- Formulario para confirmar factura -->
-<h2>Método de Pago</h2>
+<h2>[[#{pay.Method}]]</h2>
 <form th:action="@{/presentantion/factura/create}" method="post">
     <input type="date" name="fecha" required/>
     <label>
-        <input type="radio" id="efectivo" name="tipoPago" value="efectivo">
-        <label for="efectivo">Efectivo</label>
+        <input  type="radio" id="efectivo" name="tipoPago" value="efectivo">
+        <img class="imagen-edit" src="/images/cash.png" alt="efectivo">
     </label>
     <label>
-        <input type="radio" id="tarjeta" name="tipoPago" value="tarjeta">
-        <label for="tarjeta">Tarjeta</label>
+        <input  type="radio" id="tarjeta" name="tipoPago" value="tarjeta">
+        <img class="imagen-edit" src="/images/card.png" alt="tarjeta">
     </label>
-    <input type="submit" value="Crear Factura"/>
+    <input type="submit" th:value="#{create.Factura}"/>
 </form>
 
-<!-- Sección para mostrar errores -->
-<div th:if="${error}">               <!-- Esta sección causa conflicto con el multilenguaje-->
+
+<div th:if="${error}">
     <p th:text="${error}"></p>
 </div>
+</section>
 
-<!-- Footer -->
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
