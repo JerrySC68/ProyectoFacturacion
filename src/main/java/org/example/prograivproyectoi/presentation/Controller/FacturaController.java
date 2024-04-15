@@ -13,6 +13,7 @@ import jakarta.validation.constraints.Null;
 import org.example.prograivproyectoi.logic.Model.Cliente;
 import org.example.prograivproyectoi.logic.Model.Factura;
 import org.example.prograivproyectoi.logic.Model.Producto;
+import org.example.prograivproyectoi.logic.Model.Proveedor;
 import org.example.prograivproyectoi.logic.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -22,10 +23,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
 import org.thymeleaf.context.Context;
+import org.thymeleaf.exceptions.TemplateProcessingException;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,9 +52,16 @@ public class FacturaController {
 
     @GetMapping({"", "/"})
     public String showClientesList(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "lang", required = false) String lang) {
-        //--------------------------------------------------------------------------------
+        // Verificar si un proveedor está loggeado
+        HttpSession session = request.getSession();
+        String userType = (String) session.getAttribute("userType");
+
+        if (!"Proveedor".equals(userType)) {
+            // Si el usuario no es un proveedor, redirigir al login
+            return "redirect:/login";
+        }
+
         // Multi lenguaje
-        //--------------------------------------------------------------------------------
         if (lang != null) {
             localeResolver.setLocale(request, response, new Locale(lang));
         }
@@ -92,6 +102,7 @@ public class FacturaController {
         Cliente cliente = (Cliente) session.getAttribute("selectedCliente");
         String fechaString = request.getParameter("fecha");
         String tipoPago = request.getParameter("tipoPago");
+        String userType = (String) session.getAttribute("proveedorId");
 
 
         // Convertir la fecha de String a Date
@@ -108,12 +119,15 @@ public class FacturaController {
             try {
                 Factura factura = new Factura();
 
-                factura.setCedulaProveedor("1");
                 factura.setCedulaCliente(cliente.getId());
-                factura.setTipoPago(tipoPago);
-                factura.setFinalPrice(producto.getPrice());
+                factura.setCedulaProveedor(userType);
                 factura.setDate(fecha);
+                factura.setFinalPrice(producto.getPrice());
+                factura.setTipoPago(tipoPago);
+                factura.setId(service.getNextFacturaId());
                 factura.getListProducts().add(producto);
+
+                System.out.println("Factura: " + factura);
 
                 service.addFactura(factura);
             } catch (Exception e) {
@@ -142,7 +156,6 @@ public class FacturaController {
 
     @PostMapping("/selectProduct")
     public String selectProduct(@RequestParam("id") int id, HttpSession session) {
-        System.out.println("Producto: " + id);
         try {
             Producto producto = service.getProductoById(id);
             session.setAttribute("selectedProduct", producto);
@@ -176,46 +189,68 @@ public class FacturaController {
         return "redirect:/presentantion/factura/create";
     }
 
-    @GetMapping("/presentantion/factura/pdf")
-    public void pdf(Factura facturaID, HttpServletResponse response) throws Exception {
-        Factura factura = service.findFacturaById(facturaID.getId());
+    @GetMapping("/pdf/{id}")
+    public void pdf(@PathVariable("id") Long facturaID, HttpServletResponse response) {
+        try {
+            Factura factura = service.findFacturaById(facturaID);
+            if (factura == null) {
+                throw new IllegalArgumentException("Factura no encontrada");
+            }
 
-        PdfWriter writer = new PdfWriter(response.getOutputStream());
+            String fecha = (factura.getDate() != null) ? factura.getDate().toString() : "Fecha no disponible";
+            String proveedor = (factura.getCedulaProveedor() != null) ? factura.getCedulaProveedor() : "Proveedor no disponible";
+            String cliente = (factura.getCedulaCliente() != null) ? factura.getCedulaCliente() : "Cliente no disponible";
+            String tipoPago = (factura.getTipoPago() != null) ? factura.getTipoPago() : "Tipo de pago no disponible";
+            String precioFinal = (factura.getFinalPrice() != null) ? factura.getFinalPrice().toString() : "Precio final no disponible";
 
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf, PageSize.A4);
+            PdfWriter writer = new PdfWriter(response.getOutputStream());
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf, PageSize.A4);
 
-        Paragraph title = new Paragraph("Factura");
-        Paragraph content = new Paragraph("Número de factura: " + factura.getId()+ "\n" +
-                "Fecha: " + factura.getDate() + "\n" +
-                "Proveedor: " + factura.getCedulaProveedor() + "\n" +
-                "Cliente: " + factura.getCedulaCliente() + "\n" +
-                "Tipo de Pago: " + factura.getTipoPago() + "\n" +
-                "Precio Final: " + factura.getFinalPrice() + "\n"
-                );
-        document.add(title);
-        document.add(content);
-        document.close();
+            Paragraph title = new Paragraph("Factura");
+            Paragraph content = new Paragraph("Número de factura: " + factura.getId()+ "\n" +
+                    "Fecha: " + fecha + "\n" +
+                    "Proveedor: " + proveedor + "\n" +
+                    "Cliente: " + cliente + "\n" +
+                    "Tipo de Pago: " + tipoPago + "\n" +
+                    "Precio Final: " + precioFinal + "\n"
+            );
+            document.add(title);
+            document.add(content);
+            document.close();
+            writer.close();
+            pdf.close();
+        } catch (IOException e) {
+            // Manejar la excepción
+        }
     }
 
-    @GetMapping("/presentation/facturar/xml")
-    public void xml(Factura facturaID, HttpServletResponse response)throws Exception{
-        Factura factura = service.findFacturaById(facturaID.getId());
-        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setApplicationContext(new AnnotationConfigApplicationContext());
-        resolver.setPrefix("classpath:/templates/");
-        resolver.setSuffix(".xml");
-        resolver.setCharacterEncoding("UTF-8");
-        resolver.setTemplateMode(TemplateMode.XML);
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setTemplateResolver(resolver);
-        Context ctx = new Context();
-        ctx.setVariable("factura", factura);
-        String xml = engine.process("presentation/factura/xmlView", ctx);
-        response.setContentType("application/xml");
-        PrintWriter writer = response.getWriter();
-        writer.print(xml);
-        writer.close();
-    }
+    @GetMapping("/xml/{id}")
+    public void xml(@PathVariable("id") Long facturaID, HttpServletResponse response) {
+        try {
 
+            Factura factura = service.findFacturaById(facturaID);
+            if (factura == null) {
+                throw new IllegalArgumentException("Factura no encontrada");
+            }
+
+            SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+            resolver.setApplicationContext(new AnnotationConfigApplicationContext());
+            resolver.setPrefix("classpath:/templates/");
+            resolver.setSuffix(".xml");
+            resolver.setCharacterEncoding("UTF-8");
+            resolver.setTemplateMode(TemplateMode.XML);
+            SpringTemplateEngine engine = new SpringTemplateEngine();
+            engine.setTemplateResolver(resolver);
+            Context ctx = new Context();
+            ctx.setVariable("factura", factura);
+            String xml = engine.process("presentation/factura/xmlView", ctx);
+            response.setContentType("application/xml");
+            PrintWriter writer = response.getWriter();
+            writer.print(xml);
+            writer.close();
+        } catch (IOException | TemplateProcessingException e) {
+            // Manejar la excepción
+        }
+    }
 }

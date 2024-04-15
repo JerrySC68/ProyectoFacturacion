@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name = "clientes")
 public class Cliente
 {
     //-----------------------------------------------------------------------------------------

@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head th:replace="fragments/head"></head>
-	<body>
+<head th:replace="fragments/head"></head>
+<body>
 
-		<header th:replace="fragments/header :: header">&nbsp;</header>
+<header th:replace="fragments/header :: header">&nbsp;</header>
 
-		<div class="tabla-Cliente">
-			<h1>[[#{cliente.Title}]]</h1>
-			<div class="create">
-				<a class="boton-create" th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
-			</div>
-			<div>
-				<table>
-					<thead>
-						<tr>
-							<th>[[#{cliente.Id}]]</th>
-							<th>[[#{cliente.TypeId}]]</th>
-							<th>[[#{cliente.Name}]]</th>
-							<th>[[#{cliente.Telefono}]]</th>
-							<th>[[#{cliente.Email}]]</th>
-							<th>[[#{table.Action}]]</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="cliente : ${clientes}">
-							<td th:text="${cliente.id}"></td>
-							<td th:text="${cliente.typeId}"></td>
-							<td th:text="${cliente.name}"></td>
-							<td th:text="${cliente.telefono}"></td>
-							<td th:text="${cliente.email}"></td>
-							<td>
-								<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
-								<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
-									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete"	src="/images/delete.png" alt="delete"></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<div class="tabla-Cliente">
+	<h1>[[#{cliente.Title}]]</h1>
+	<div class="create">
+		<a class="boton-create" th:href="@{/presentantion/clientes/create}">[[#{action.Create}]]</a>
+	</div>
+	<div>
+		<table>
+			<thead>
+			<tr>
+				<th>[[#{cliente.Id}]]</th>
+				<th>[[#{cliente.TypeId}]]</th>
+				<th>[[#{cliente.Name}]]</th>
+				<th>[[#{cliente.Telefono}]]</th>
+				<th>[[#{cliente.Email}]]</th>
+				<th>[[#{table.Action}]]</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td th:text="${cliente.id}"></td>
+				<td th:text="${cliente.typeId}"></td>
+				<td th:text="${cliente.name}"></td>
+				<td th:text="${cliente.telefono}"></td>
+				<td th:text="${cliente.email}"></td>
+				<td>
+					<a th:href="@{/presentantion/clientes/view(id=${cliente.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
+					<a th:href="@{/presentantion/clientes/delete(id=${cliente.id})}"
+					   th:onclick="'return confirm(' + '\'' + #{action.Confirm} + '\'' + ')'"><img class="imagen-delete" src="/images/delete.png" alt="delete"></a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

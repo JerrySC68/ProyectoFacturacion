@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head th:replace="fragments/head"></head>
-	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
-		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
-		<h1>[[#{producto.view.Title}]]</h1>
-		<div class="marco">
-			<label>[[#{producto.Type}]]
-				<select disabled th:field="${producto.type}">
-					<option value="1">Product</option>
-					<option value="0">Service</option>
-				</select>
-			</label>
-			<br/><br/>
-			<label>[[#{producto.Code}]]
-				<input disabled th:field="${producto.code}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{producto.Description}]]
-				<input disabled th:field="${producto.description}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{producto.Measure}]]
-				<select disabled th:field="${producto.measure}">
-					<option value="u">Unit</option>
-					<option value="kg">Kilogram</option>
-					<option value="l">Liter</option>
-					<option value="m">Metro</option>
-					<option value="n">none</option>
-				</select>
-			</label>
-			<br/><br/>
-			<label>[[#{producto.Price}]]
-				<input disabled min="0" th:field="${producto.price}" type="number">
-			</label>
-			<br/><br/>
-			<label>[[#{producto.IvaFee}]]
-				<select disabled th:field="${producto.ivaFee}">
-					<option value="0">0%</option>
-					<option value="0.5">0.5%</option>
-					<option value="1">1%</option>
-					<option value="4">4%</option>
-					<option value="8">8%</option>
-					<option value="13">13%</option>
-				</select>
-			</label>
-			<br/><br/>
-			<a href="/presentantion/productos">[[#{action.Back}]]</a>
-		</div>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<head th:replace="fragments/head"></head>
+<body>
+<!----------------------------------------------------------------
+ Header
+---------------------------------------------------------------- -->
+<header th:replace="fragments/header :: header">&nbsp;</header>
+
+<h1>[[#{producto.view.Title}]]</h1>
+<div class="marco">
+	<label>[[#{producto.Type}]]
+		<select disabled th:field="${producto.type}">
+			<option value="1">Product</option>
+			<option value="0">Service</option>
+		</select>
+	</label>
+	<br/><br/>
+	<label>[[#{producto.Id}]]
+		<input disabled th:field="${producto.id}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{producto.Description}]]
+		<input disabled th:field="${producto.description}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{producto.Measure}]]
+		<select disabled th:field="${producto.measure}">
+			<option value="u">Unit</option>
+			<option value="kg">Kilogram</option>
+			<option value="l">Liter</option>
+			<option value="m">Metro</option>
+			<option value="n">none</option>
+		</select>
+	</label>
+	<br/><br/>
+	<label>[[#{producto.Price}]]
+		<input disabled min="0" th:field="${producto.price}" type="number">
+	</label>
+	<br/><br/>
+	<label>[[#{producto.IvaFee}]]
+		<select disabled th:field="${producto.ivaFee}">
+			<option value="0">0%</option>
+			<option value="0.5">0.5%</option>
+			<option value="1">1%</option>
+			<option value="4">4%</option>
+			<option value="8">8%</option>
+			<option value="13">13%</option>
+		</select>
+	</label>
+	<br/><br/>
+	<a href="/presentantion/productos">[[#{action.Back}]]</a>
+</div>
+<!----------------------------------------------------------------
+ Footer
+---------------------------------------------------------------- -->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

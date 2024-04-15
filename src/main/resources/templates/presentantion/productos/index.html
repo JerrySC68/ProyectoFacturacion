@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:replace="fragments/head"></head>
-	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
-		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
-		<div class="tabla-productos">
-			<h1>[[#{producto.Title}]]</h1>
-			<div class="create">
-				<a class="boton-create" th:href="@{/presentantion/productos/create}">[[#{action.Create}]]</a>
-			</div>
-			<div>
-				<table>
-					<thead>
-						<tr>
-							<th>[[#{producto.Code}]]</th>
-							<th>[[#{producto.Description}]]</th>
-							<th>[[#{producto.Price}]]</th>
-							<th>[[#{table.Action}]]</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="producto : ${productos}">
-							<td th:text="${producto.code}"></td>
-							<td th:text="${producto.description}"></td>
-							<td th:text="${producto.price}"></td>
-							<td>
-								<a th:href="@{/presentantion/productos/view(id=${producto.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
-								<a th:href="@{/presentantion/productos/edit(id=${producto.id})}"><img class="imagen-edit" src="/images/editar.png" alt="edit"></a>
-								<a th:href="@{/presentantion/productos/delete(id=${producto.id})}"
-									th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete" src="/images/delete.png" alt=""></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+<body>
+<header th:replace="fragments/header :: header">&nbsp;</header>
 
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<div class="tabla-productos">
+	<h1>[[#{producto.Title}]]</h1>
+	<div class="create">
+		<a class="boton-create" th:href="@{/presentantion/productos/create}">[[#{action.Create}]]</a>
+	</div>
+	<div>
+		<table>
+			<thead>
+			<tr>
+				<th>[[#{producto.Id}]]</th>
+				<th>[[#{producto.Description}]]</th>
+				<th>[[#{producto.Price}]]</th>
+				<th>[[#{table.Action}]]</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="producto : ${productos}">
+				<td th:text="${producto.id}"></td>
+				<td th:text="${producto.description}"></td>
+				<td th:text="${producto.price}"></td>
+				<td>
+					<a th:href="@{/presentantion/productos/view(id=${producto.id})}"><img class="imagen-view" src="/images/view.png" alt="view"></a>
+					<a th:href="@{/presentantion/productos/edit(id=${producto.id})}"><img class="imagen-edit" src="/images/editar.png" alt="edit"></a>
+					<a th:href="@{/presentantion/productos/delete(id=${producto.id})}"
+					   th:onclick="return confirm([[#{action.Confirm}]])"><img class="imagen-delete" src="/images/delete.png" alt=""></a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

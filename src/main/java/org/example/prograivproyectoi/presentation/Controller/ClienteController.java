@@ -37,6 +37,14 @@ public class ClienteController {
     //--------------------------------------------------------------------------------
     @GetMapping({"", "/"})
     public String showClientesList(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "lang", required = false) String lang) {
+        HttpSession session = request.getSession();
+        String userType = (String) session.getAttribute("userType");
+
+        if (!"Proveedor".equals(userType)) {
+            // Si el usuario no es un proveedor, redirigir al login
+            return "redirect:/login";
+        }
+
         //--------------------------------------------------------------------------------
         // Multi lenguaje
         //--------------------------------------------------------------------------------

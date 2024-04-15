@@ -12,18 +12,16 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name = "productos")
 public class Producto
 {
     //-----------------------------------------------------------------------------------------
     //Atributos
     //-----------------------------------------------------------------------------------------
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull(message = "{error.Empty}")
     private Boolean type;
-    @NotEmpty(message = "{error.Empty}")
-    private String code;
     @NotEmpty(message = "{error.Empty}")
     @Size(max = 2000, message = "{error.Max1000}")
     private String description;

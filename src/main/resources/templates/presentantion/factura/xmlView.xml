@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <factura xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="xmlView.xsd">
+         xsi:noNamespaceSchemaLocation="xmlView.xml">
     <id th:text="${factura.id}" />
     <fecha th:text="${#dates.format(factura.date, 'yyyy-MM-dd')}" />
     <proveedor th:text="${factura.cedulaProveedor}" />

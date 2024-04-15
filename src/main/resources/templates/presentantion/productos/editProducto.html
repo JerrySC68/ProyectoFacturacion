@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head th:replace="fragments/head"></head>
-	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
-		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
-		<h1>[[#{producto.edit.Title}]]</h1>
-		<form enctype="multipart/form-data" method="post" th:object="${producto}" class="marco">
-			<label>[[#{producto.Type}]]
-				<select th:field="${producto.type}">
-					<option value="1">[[#{producto.type.Product}]]</option>
-					<option value="0">[[#{producto.type.Service}]]</option>
-				</select>
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<label>[[#{producto.Code}]]
-				<input th:field="${producto.code}"/>
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('code')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<label>[[#{producto.Description}]]
-				<input th:field="${producto.description}"/>
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('description')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<label>[[#{producto.Measure}]]
-				<select th:field="${producto.measure}">
-					<option value="u">[[#{producto.measure.Unit}]]</option>
-					<option value="kg">[[#{producto.measure.Kilogram}]]</option>
-					<option value="l">[[#{producto.measure.Liter}]]</option>
-					<option value="m">[[#{producto.measure.Meter}]]</option>
-					<option value="n">[[#{producto.measure.None}]]</option>
-				</select>
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<label>[[#{producto.Price}]]
-				<input min="0" th:field="${producto.price}" type="number">
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('price')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<label>[[#{producto.IvaFee}]]
-				<select th:field="${producto.ivaFee}">
-					<option value="0">0%</option>
-					<option value="0.5">0.5%</option>
-					<option value="1">1%</option>
-					<option value="4">4%</option>
-					<option value="8">8%</option>
-					<option value="13">13%</option>
-				</select>
-				<ul>
-					<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('ivaFee')}"
-						 th:text="${error}"></li>
-				</ul>
-			</label>
-			<button type="submit">[[#{action.Submit}]]</button>
-			<a href="/presentantion/productos">[[#{action.Back}]]</a>
-		</form>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<head th:replace="fragments/head"></head>
+<body>
+<!----------------------------------------------------------------
+ Header
+---------------------------------------------------------------- -->
+<header th:replace="fragments/header :: header">&nbsp;</header>
+<!----------------------------------------------------------------
+ Body
+---------------------------------------------------------------- -->
+<h1>[[#{producto.edit.Title}]]</h1>
+<form enctype="multipart/form-data" method="post" th:object="${producto}" class="marco">
+	<label>[[#{producto.Type}]]
+		<select th:field="${producto.type}">
+			<option value="1">[[#{producto.type.Product}]]</option>
+			<option value="0">[[#{producto.type.Service}]]</option>
+		</select>
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('type')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<label>[[#{producto.Id}]]
+		<input th:field="${producto.id}"/>
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<label>[[#{producto.Description}]]
+		<input th:field="${producto.description}"/>
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('description')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<label>[[#{producto.Measure}]]
+		<select th:field="${producto.measure}">
+			<option value="u">[[#{producto.measure.Unit}]]</option>
+			<option value="kg">[[#{producto.measure.Kilogram}]]</option>
+			<option value="l">[[#{producto.measure.Liter}]]</option>
+			<option value="m">[[#{producto.measure.Meter}]]</option>
+			<option value="n">[[#{producto.measure.None}]]</option>
+		</select>
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('measure')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<label>[[#{producto.Price}]]
+		<input min="0" th:field="${producto.price}" type="number">
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('price')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<label>[[#{producto.IvaFee}]]
+		<select th:field="${producto.ivaFee}">
+			<option value="0">0%</option>
+			<option value="0.5">0.5%</option>
+			<option value="1">1%</option>
+			<option value="4">4%</option>
+			<option value="8">8%</option>
+			<option value="13">13%</option>
+		</select>
+		<ul>
+			<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('ivaFee')}"
+				th:text="${error}"></li>
+		</ul>
+	</label>
+	<button type="submit">[[#{action.Submit}]]</button>
+	<a href="/presentantion/productos">[[#{action.Back}]]</a>
+</form>
+<!----------------------------------------------------------------
+ Footer
+---------------------------------------------------------------- -->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

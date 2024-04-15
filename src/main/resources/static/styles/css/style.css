@@ -84,7 +84,7 @@ footer button {
     border: none;
     font-weight: bold;
 }
- footer button:hover {
+footer button:hover {
     cursor: pointer;
 }
 
@@ -264,5 +264,3 @@ input[type="submit"], input[type="date"], input[type="radio"] {
 input[type="submit"]:hover, input[type="date"]:hover, input[type="radio"]:hover {
     cursor: pointer;
 }
-
-

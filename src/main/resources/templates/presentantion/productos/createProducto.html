@@ -23,10 +23,10 @@
 					</ul>
 				</label>
 				<label>[[#{producto.Code}]]
-					<input th:field="${producto.code}"/>
+					<input th:field="${producto.id}"/>
 					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('code')}"
-							 th:text="${error}"></li>
+						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
+							th:text="${error}"></li>
 					</ul>
 				</label>
 				<label>[[#{producto.Description}]]

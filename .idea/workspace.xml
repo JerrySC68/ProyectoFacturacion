@@ -4,14 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="CSS">
+    <list default="true" id="8a6f7bd1-cd36-49c2-ac5c-4efb63f2945b" name="Changes" comment="Creación de Facturas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Proveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/Proveedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/TipoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Model/TipoCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/logic/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/AdminProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/AdminProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/FacturaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProveedorProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/prograivproyectoi/presentation/Controller/ProveedorProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_es.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_es.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_it.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/administrador/admin-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/administrador/admin-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/createCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/createCliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/viewCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/clientes/viewCliente.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/createFactura.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/createFactura.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/listaFactura.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/xmlView.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/factura/xmlView.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/createProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/createProducto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/editProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/editProducto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/viewProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/productos/viewProducto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentantion/proveedor/proveedor-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentantion/proveedor/proveedor-profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +57,7 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -50,8 +77,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -64,37 +95,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Database.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.PrograIvProyectoIApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Eddy/Desktop/ProyectoFacturacion/src/main/resources/static/styles/css&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.36666667&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Database.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PrograIvProyectoIApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Eddy/Desktop/ProyectoFacturacion/src/main/resources/static/styles/css",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36666667",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Eddy\Desktop\ProyectoFacturacion\src\main\resources\static\styles\css" />
@@ -295,37 +331,37 @@
       <option name="project" value="LOCAL" />
       <updated>1713073928270</updated>
     </task>
-    <task id="LOCAL-00013" summary="CSS">
+    <task id="LOCAL-00013" summary="Facturación">
       <option name="closed" value="true" />
-      <created>1713127482692</created>
+      <created>1713119834037</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1713127482692</updated>
+      <updated>1713119834037</updated>
     </task>
-    <task id="LOCAL-00014" summary="CSS">
+    <task id="LOCAL-00014" summary="Facturación">
       <option name="closed" value="true" />
-      <created>1713127587876</created>
+      <created>1713119926986</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1713127587876</updated>
+      <updated>1713119926986</updated>
     </task>
-    <task id="LOCAL-00015" summary="CSS">
+    <task id="LOCAL-00015" summary="Creación de Facturas">
       <option name="closed" value="true" />
-      <created>1713137962250</created>
+      <created>1713121346780</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1713137962250</updated>
+      <updated>1713121346780</updated>
     </task>
-    <task id="LOCAL-00016" summary="CSS">
+    <task id="LOCAL-00016" summary="Creación de Facturas">
       <option name="closed" value="true" />
-      <created>1713147743688</created>
+      <created>1713121487872</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1713147743688</updated>
+      <updated>1713121487872</updated>
     </task>
     <option name="localTasksCounter" value="17" />
     <servers />
@@ -355,11 +391,13 @@
     <MESSAGE value="HaciendaSTUB&#10;Cliente(en proceso)" />
     <MESSAGE value="HaciendaSTUB&#10;Cliente" />
     <MESSAGE value="CSS Basico&#10;Correccion footer,header y head" />
+    <MESSAGE value="CSS" />
     <MESSAGE value="Correccion Unificacion - Cliente" />
     <MESSAGE value="Correccion Unificacion - Login" />
     <MESSAGE value="Multilenguaje SignUp" />
     <MESSAGE value="Boton Back SignUp" />
-    <MESSAGE value="CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS" />
+    <MESSAGE value="Facturación" />
+    <MESSAGE value="Creación de Facturas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creación de Facturas" />
   </component>
 </project>

@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head th:replace="fragments/head"></head>
-	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
-		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
-		<h1>[[#{cliente.view.Title}]]</h1>
-		<div class="marco">
-			<label>[[#{cliente.Id}]]
-				<input disabled th:field="${cliente.id}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{cliente.TypeId}]]
-				<input disabled th:field="${cliente.typeId}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{cliente.Name}]]
-				<input disabled th:field="${cliente.name}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{cliente.Direccion}]]
-				<input disabled th:field="${cliente.direccion}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{cliente.Telefono}]]
-				<input disabled th:field="${cliente.telefono}"/>
-			</label>
-			<br/><br/>
-			<label>[[#{cliente.Email}]]
-				<input disabled th:field="${cliente.email}"/>
-			</label>
-			<br/><br/>
-			<a href="/presentantion/clientes">[[#{action.Back}]]</a>
-		</div>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<head th:replace="fragments/head"></head>
+<body>
+<!----------------------------------------------------------------
+ Header
+---------------------------------------------------------------- -->
+<header th:replace="fragments/header :: header">&nbsp;</header>
+<!----------------------------------------------------------------
+ Body
+---------------------------------------------------------------- -->
+<h1>[[#{cliente.view.Title}]]</h1>
+<div class="marco">
+	<label>[[#{cliente.Id}]]
+		<input disabled th:field="${cliente.id}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{cliente.TypeId}]]
+		<input disabled th:field="${cliente.typeId}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{cliente.Name}]]
+		<input disabled th:field="${cliente.name}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{cliente.Direccion}]]
+		<input disabled th:field="${cliente.direccion}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{cliente.Telefono}]]
+		<input disabled th:field="${cliente.telefono}"/>
+	</label>
+	<br/><br/>
+	<label>[[#{cliente.Email}]]
+		<input disabled th:field="${cliente.email}"/>
+	</label>
+	<br/><br/>
+	<a href="/presentantion/clientes">[[#{action.Back}]]</a>
+</div>
+<!----------------------------------------------------------------
+ Footer
+---------------------------------------------------------------- -->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

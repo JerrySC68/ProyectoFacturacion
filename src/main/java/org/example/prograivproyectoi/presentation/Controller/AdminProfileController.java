@@ -7,7 +7,6 @@ import org.example.prograivproyectoi.logic.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 import org.example.prograivproyectoi.logic.Model.Admin;
 
@@ -23,6 +22,7 @@ public class AdminProfileController {
 
     @GetMapping("/admin/profile/{userId}")
     public String profile(@PathVariable String userId, Model model, HttpSession httpSession) {
+        System.out.println("llegue");
         String loggedUserType = (String) httpSession.getAttribute("userType");
         String loggedUserId = (String) httpSession.getAttribute("adminId");
 

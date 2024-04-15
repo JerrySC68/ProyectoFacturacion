@@ -32,8 +32,8 @@
                 <td th:text="${factura.tipoPago}"></td>
                 <td th:text="${factura.finalPrice}"></td>
                 <td>
-                    <a th:href="@{/presentantion/factura/pdf}"><img class="imagen-view" src="/images/pdf.png" alt="view"></a>
-                    <a th:href="@{/presentantion/factura/xml}"><img class="imagen-delete"	src="/images/xml.png" alt="delete"></a>
+                    <a th:href="@{/presentantion/factura/pdf/{id}(id=${factura.id})}" ><img class="imagen-view" src="/images/pdf.png" alt="view"></a>
+                    <a th:href="@{/presentantion/factura/xml/{id}(id=${factura.id})}" ><img class="imagen-delete" src="/images/xml.png" alt="delete"></a>
                 </td>
             </tr>
             </tbody>

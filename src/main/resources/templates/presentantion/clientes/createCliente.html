@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head th:replace="fragments/head"></head>
-	<body>
-		<!----------------------------------------------------------------
-		 Header
-		---------------------------------------------------------------- -->
-		<header th:replace="fragments/header :: header">&nbsp;</header>
-		<!----------------------------------------------------------------
-		 Body
-		---------------------------------------------------------------- -->
-		<h1>[[#{cliente.create.Title}]]</h1>
-		<form class="marco" enctype="multipart/form-data" method="post" th:object="${cliente}">
-			<div>
-				<label>[[#{cliente.Id}]]
-					<input th:field="${cliente.id}" th:required="required"/>
-					<button class="boton-create"	 name="add" type="submit" value="add">[[#{action.Search}]]</button>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
-							 th:text="${error}"></li>
-						<li class="error" th:if="${error}" th:text="${error}"></li>
-					</ul>
-				</label>
-				<label>[[#{cliente.TypeId}]]
-					<input th:field="${cliente.typeId}" th:readonly="true"/>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('typeId')}"
-							 th:text="${error}"></li>
-					</ul>
-				</label>
-				<label>[[#{cliente.Name}]]
-					<input th:field="${cliente.name}" th:readonly="true"/>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('name')}"
-							 th:text="${error}"></li>
-					</ul>
-				</label>
-				<label>[[#{cliente.Direccion}]]
-					<input th:field="${cliente.direccion}" th:readonly="true"/>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('direccion')}"
-							 th:text="${error}"></li>
-					</ul>
-				</label>
-				<label>[[#{cliente.Telefono}]]
-					<input th:field="${cliente.telefono}" th:readonly="true"/>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('telefono')}"
-							 th:text="${error}"></li>
-					</ul>
-				</label>
-				<label>[[#{cliente.Email}]]
-					<input th:field="${cliente.email}" th:readonly="true"/>
-					<ul>
-						<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('email')}"
-							 th:text="${error}"></li>
-					</ul>
-				</label>
-				<button class="boton-create" type="submit">[[#{action.Submit}]]</button>
-				<a class="boton-create" href="/presentantion/clientes">[[#{action.Back}]]</a>
-			</div>
-		</form>
-		<!----------------------------------------------------------------
-		 Footer
-		---------------------------------------------------------------- -->
-		<footer th:replace="fragments/footer :: footer"></footer>
-	</body>
+<head th:replace="fragments/head"></head>
+<body>
+<!----------------------------------------------------------------
+ Header
+---------------------------------------------------------------- -->
+<header th:replace="fragments/header :: header">&nbsp;</header>
+<!----------------------------------------------------------------
+ Body
+---------------------------------------------------------------- -->
+<h1>[[#{cliente.create.Title}]]</h1>
+<form class="marco" enctype="multipart/form-data" method="post" th:object="${cliente}">
+	<div>
+		<label>[[#{cliente.Id}]]
+			<input th:field="${cliente.id}" th:required="required"/>
+			<button class="boton-create"	 name="add" type="submit" value="add">[[#{action.Search}]]</button>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('id')}"
+					th:text="${error}"></li>
+				<li class="error" th:if="${error}" th:text="${error}"></li>
+			</ul>
+		</label>
+		<label>[[#{cliente.TypeId}]]
+			<input th:field="${cliente.typeId}" th:readonly="true"/>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('typeId')}"
+					th:text="${error}"></li>
+			</ul>
+		</label>
+		<label>[[#{cliente.Name}]]
+			<input th:field="${cliente.name}" th:readonly="true"/>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('name')}"
+					th:text="${error}"></li>
+			</ul>
+		</label>
+		<label>[[#{cliente.Direccion}]]
+			<input th:field="${cliente.direccion}" th:readonly="true"/>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('direccion')}"
+					th:text="${error}"></li>
+			</ul>
+		</label>
+		<label>[[#{cliente.Telefono}]]
+			<input th:field="${cliente.telefono}" th:readonly="true"/>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('telefono')}"
+					th:text="${error}"></li>
+			</ul>
+		</label>
+		<label>[[#{cliente.Email}]]
+			<input th:field="${cliente.email}" th:readonly="true"/>
+			<ul>
+				<li th:classappend="${error != null ? 'error' : ''}" th:each="error : ${#fields.errors('email')}"
+					th:text="${error}"></li>
+			</ul>
+		</label>
+		<button class="boton-create" type="submit">[[#{action.Submit}]]</button>
+		<a class="boton-create" href="/presentantion/clientes">[[#{action.Back}]]</a>
+	</div>
+</form>
+<!----------------------------------------------------------------
+ Footer
+---------------------------------------------------------------- -->
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>

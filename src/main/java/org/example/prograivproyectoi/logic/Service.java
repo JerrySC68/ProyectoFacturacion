@@ -220,4 +220,8 @@ public class Service {
     public Factura findFacturaById(Long id) {
         return facturaRepository.findById(id).orElseThrow();
     }
+
+    public Long getNextFacturaId() {
+        return facturaRepository.count() + 1;
+    }
 }

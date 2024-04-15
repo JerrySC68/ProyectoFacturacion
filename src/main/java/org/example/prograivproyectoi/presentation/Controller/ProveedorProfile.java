@@ -28,6 +28,7 @@ public class ProveedorProfile {
     @GetMapping("/proveedor/profile/{userId}")
     public String profile(@PathVariable String userId, Model model, HttpSession httpSession) {
         String sessionUserId = (String) httpSession.getAttribute("proveedorId");
+        System.out.println("llegue");
 
         if (sessionUserId == null || !sessionUserId.equals(userId)) {
             return "redirect:/login";

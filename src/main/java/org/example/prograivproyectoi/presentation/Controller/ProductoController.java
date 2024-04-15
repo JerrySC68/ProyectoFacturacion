@@ -2,6 +2,7 @@ package org.example.prograivproyectoi.presentation.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.example.prograivproyectoi.logic.Model.Producto;
 import org.example.prograivproyectoi.logic.Service;
@@ -33,6 +34,14 @@ public class ProductoController
     public String showProductosList(Model model, HttpServletRequest request, HttpServletResponse response,
                                     @RequestParam(name = "lang", required = false) String lang)
     {
+        HttpSession session = request.getSession();
+        String userType = (String) session.getAttribute("userType");
+
+        if (!"Proveedor".equals(userType)) {
+            // Si el usuario no es un proveedor, redirigir al login
+            return "redirect:/login";
+        }
+
         //--------------------------------------------------------------------------------
         // Multi lenguaje
         //--------------------------------------------------------------------------------
@@ -54,6 +63,7 @@ public class ProductoController
     public String showProductoCreatePage(Model model, HttpServletRequest request, HttpServletResponse response,
                                          @RequestParam(name = "lang", required = false) String lang)
     {
+
         //--------------------------------------------------------------------------------
         // Multi lenguaje
         //--------------------------------------------------------------------------------
@@ -69,6 +79,8 @@ public class ProductoController
 
     @PostMapping("/create")
     public String createProducto(@Valid @ModelAttribute Producto producto, BindingResult result) {
+
+        System.out.println("producto" + producto);
 
         //--------------------------------------------------------------------------------
         // Si hay errores en el formulario, se regresa  a la pagina de creación
@@ -121,7 +133,6 @@ public class ProductoController
             model.addAttribute("producto", producto);
 
             producto.setType(pproducto.getType());
-            producto.setCode(pproducto.getCode());
             producto.setDescription(pproducto.getDescription());
             producto.setMeasure(pproducto.getMeasure());
             producto.setPrice(pproducto.getPrice());

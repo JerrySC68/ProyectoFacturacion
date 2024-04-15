@@ -50,7 +50,6 @@ public class LoginController {
                 return "redirect:/proveedor/profile/" + userId;
             }
         }
-
         // If credentials are not valid, redirect back to login page
         redirectAttributes.addFlashAttribute("error", "Invalid ID or password");
         return "redirect:/login";

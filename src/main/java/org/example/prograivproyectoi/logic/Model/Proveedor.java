@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "proveedores") //Nombre de la tabla en la base de datos
 public class Proveedor
 {
     //-----------------------------------------------------------------------------------------
